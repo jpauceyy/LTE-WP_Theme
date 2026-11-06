@@ -1,0 +1,12 @@
+/* Editor-only adjustments: the editor canvas should look like the front end. */
+body,.editor-styles-wrapper{background:radial-gradient(60% 50% at 75% 35%,rgba(42,120,240,.18),transparent 70%),var(--bg);color:var(--text)}
+.editor-styles-wrapper .hdr{position:relative;top:0}
+.editor-styles-wrapper .mbar{position:relative;left:auto;right:auto;bottom:auto;transform:none;margin:10px;display:flex}
+.editor-styles-wrapper .hero{min-height:0;padding-block:clamp(24px,4.5vw,60px)}
+.editor-styles-wrapper .skip{display:none}
+.editor-styles-wrapper .wp-block-html{min-height:20px}
+.editor-styles-wrapper .eq.hero-eq{opacity:1}
+.editor-styles-wrapper .rise{opacity:1;transform:none}
+.editor-styles-wrapper .wp-block-group.wrap{margin-inline:auto}
+.editor-styles-wrapper .wp-block-template-part.hdr{position:relative}
+.editor-styles-wrapper [data-type="core/group"]>.block-list-appender{display:none}

@@ -1,0 +1,14 @@
+/*
+Theme Name: Learn Try Earn
+Theme URI: https://github.com/jpauceyy/LTE-WP_Theme
+Author: Learn Try Earn
+Description: Dark, blue-accent block theme for Learn Try Earn. Built entirely from core Gutenberg blocks, so the editor looks like the front end. Includes full-page patterns for Home, About, Get started and Contact.
+Version: 1.0.0
+Requires at least: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lte
+Tags: block-theme, full-site-editing, dark, one-column, custom-colors, editor-style
+*/
+/* All theme styling lives in assets/css/theme.css (loaded on the front end and inside the block editor). */

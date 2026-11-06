@@ -1,0 +1,182 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": false,
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "defaultDuotone": false,
+      "palette": [
+        {
+          "slug": "bg",
+          "name": "Background",
+          "color": "#040A18"
+        },
+        {
+          "slug": "bg-2",
+          "name": "Background 2",
+          "color": "#071227"
+        },
+        {
+          "slug": "card",
+          "name": "Card",
+          "color": "#0A1730"
+        },
+        {
+          "slug": "text",
+          "name": "Text",
+          "color": "#E6EEFF"
+        },
+        {
+          "slug": "muted",
+          "name": "Muted",
+          "color": "#9EAED0"
+        },
+        {
+          "slug": "soft",
+          "name": "Soft",
+          "color": "#8394B8"
+        },
+        {
+          "slug": "accent",
+          "name": "Accent blue",
+          "color": "#4A9CFF"
+        },
+        {
+          "slug": "accent-2",
+          "name": "Accent deep blue",
+          "color": "#2A78F0"
+        },
+        {
+          "slug": "ink",
+          "name": "Ink",
+          "color": "#02122B"
+        }
+      ]
+    },
+    "typography": {
+      "fluid": false,
+      "fontFamilies": [
+        {
+          "slug": "sans",
+          "name": "Geist",
+          "fontFamily": "\"Geist\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Geist",
+              "fontWeight": "100 900",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "src": [
+                "file:./assets/fonts/geist-latin-wght-normal.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "mono",
+          "name": "Geist Mono",
+          "fontFamily": "\"Geist Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+          "fontFace": [
+            {
+              "fontFamily": "Geist Mono",
+              "fontWeight": "100 900",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "src": [
+                "file:./assets/fonts/geist-mono-latin-wght-normal.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "serif",
+          "name": "Instrument Serif",
+          "fontFamily": "\"Instrument Serif\", Georgia, \"Times New Roman\", serif",
+          "fontFace": [
+            {
+              "fontFamily": "Instrument Serif",
+              "fontWeight": "400",
+              "fontStyle": "italic",
+              "fontDisplay": "swap",
+              "src": [
+                "file:./assets/fonts/instrument-serif-latin-400-italic.woff2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "%",
+        "vw",
+        "vh"
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "text": "var(--wp--preset--color--text)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--sans)",
+      "fontSize": "1.0625rem",
+      "lineHeight": "1.6"
+    },
+    "spacing": {
+      "blockGap": "0"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "inherit"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--accent)",
+          "text": "var(--wp--preset--color--ink)"
+        },
+        "border": {
+          "radius": "12px"
+        },
+        "typography": {
+          "fontWeight": "600",
+          "fontSize": "0.97rem",
+          "lineHeight": "1"
+        },
+        "spacing": {
+          "padding": {
+            "top": "0",
+            "bottom": "0",
+            "left": "20px",
+            "right": "20px"
+          }
+        }
+      }
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    },
+    {
+      "name": "mobile-bar",
+      "title": "Mobile quick actions",
+      "area": "uncategorized"
+    }
+  ]
+}
