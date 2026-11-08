@@ -173,9 +173,9 @@
 <div class="wp-block-group prin-grid">
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="4"/><path d="M6 16h28M16 16v18"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-1.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Establish your own structure</h3>
 <!-- /wp:heading -->
@@ -186,9 +186,9 @@
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><circle cx="17" cy="17" r="10"/><path d="m25 25 9 9M14 14.5a3.2 3.2 0 1 1 4.5 3c-1 .5-1.5 1.2-1.5 2.3M17 23h.01"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-2.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Question your judgement</h3>
 <!-- /wp:heading -->
@@ -199,9 +199,9 @@
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><path d="M20 5 33 10v9c0 8-5.6 13.4-13 16-7.4-2.6-13-8-13-16v-9Z"/><path d="m14 20 4 4 8-9"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-3.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Accept the consequences</h3>
 <!-- /wp:heading -->
@@ -274,9 +274,20 @@
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:html -->
-<div class="weight"><div class="bar"><i style="--w:88%"></i></div><span class="mono">Most of my time and trading</span></div>
-<!-- /wp:html -->
+<!-- wp:group {"className":"weight","layout":{"type":"default"}} -->
+<div class="wp-block-group weight">
+<!-- wp:group {"className":"bar","layout":{"type":"default"}} -->
+<div class="wp-block-group bar">
+<!-- wp:group {"className":"bar-fill w-88","layout":{"type":"default"}} -->
+<div class="wp-block-group bar-fill w-88"></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"mono"} -->
+<p class="mono">Most of my time and trading</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </article>
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"article","className":"fcard glass tilt rise","layout":{"type":"default"}} -->
@@ -314,9 +325,20 @@
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:html -->
-<div class="weight"><div class="bar"><i style="--w:26%"></i></div><span class="mono">A smaller part of my activity</span></div>
-<!-- /wp:html -->
+<!-- wp:group {"className":"weight","layout":{"type":"default"}} -->
+<div class="wp-block-group weight">
+<!-- wp:group {"className":"bar","layout":{"type":"default"}} -->
+<div class="wp-block-group bar">
+<!-- wp:group {"className":"bar-fill w-26","layout":{"type":"default"}} -->
+<div class="wp-block-group bar-fill w-26"></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"mono"} -->
+<p class="mono">A smaller part of my activity</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </article>
 <!-- /wp:group -->
 </div>
@@ -462,9 +484,9 @@
 <div class="wp-block-group reality glass rise">
 <!-- wp:group {"className":"shield","layout":{"type":"default"}} -->
 <div class="wp-block-group shield">
-<!-- wp:html -->
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 20 6v6c0 5-3.5 8-8 9.5C7.5 20 4 17 4 12V6Z"/><path d="M12 8v5M12 16h.01"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-4.svg" alt=""/></figure>
+<!-- /wp:image -->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"layout":{"type":"default"}} -->
@@ -493,9 +515,16 @@
 <div class="wp-block-group wrap">
 <!-- wp:group {"className":"final-card glass","layout":{"type":"default"}} -->
 <div class="wp-block-group final-card glass">
-<!-- wp:html -->
-<span class="lte-mark m-final" aria-hidden="true"><i class="m-l"></i><i class="m-a"></i></span>
-<!-- /wp:html -->
+<!-- wp:group {"className":"lte-mark m-final","layout":{"type":"default"}} -->
+<div class="wp-block-group lte-mark m-final">
+<!-- wp:group {"className":"m-l","layout":{"type":"default"}} -->
+<div class="wp-block-group m-l"></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"m-a","layout":{"type":"default"}} -->
+<div class="wp-block-group m-a"></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 <!-- wp:paragraph {"className":"pill rise"} -->
 <p class="pill rise">Live on TikTok, entries on Telegram</p>
 <!-- /wp:paragraph -->

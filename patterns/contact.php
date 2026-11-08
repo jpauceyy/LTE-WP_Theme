@@ -87,9 +87,16 @@
 <div class="wp-block-group wrap">
 <!-- wp:group {"className":"final-card glass","layout":{"type":"default"}} -->
 <div class="wp-block-group final-card glass">
-<!-- wp:html -->
-<span class="lte-mark m-final" aria-hidden="true"><i class="m-l"></i><i class="m-a"></i></span>
-<!-- /wp:html -->
+<!-- wp:group {"className":"lte-mark m-final","layout":{"type":"default"}} -->
+<div class="wp-block-group lte-mark m-final">
+<!-- wp:group {"className":"m-l","layout":{"type":"default"}} -->
+<div class="wp-block-group m-l"></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"m-a","layout":{"type":"default"}} -->
+<div class="wp-block-group m-a"></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 <!-- wp:paragraph {"className":"pill rise"} -->
 <p class="pill rise">Live on TikTok, entries on Telegram</p>
 <!-- /wp:paragraph -->

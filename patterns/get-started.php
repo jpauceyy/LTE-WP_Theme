@@ -41,9 +41,9 @@
 <div class="wp-block-group rise">
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><rect x="8" y="5" width="24" height="30" rx="4"/><path d="M14 13h12M14 19h12M14 25h7"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-5.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Have these ready</h3>
 <!-- /wp:heading -->
@@ -195,9 +195,9 @@
 <div class="wp-block-group prin-grid mt-28">
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><rect x="5" y="8" width="30" height="20" rx="3"/><path d="M15 34h10M20 28v6"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-6.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">On desktop</h3>
 <!-- /wp:heading -->
@@ -208,9 +208,9 @@
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><rect x="12" y="4" width="16" height="32" rx="3"/><path d="M18 31h4"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-7.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">On mobile</h3>
 <!-- /wp:heading -->
@@ -221,9 +221,9 @@
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"article","className":"prin glass tilt rise","layout":{"type":"default"}} -->
 <article class="wp-block-group prin glass tilt rise">
-<!-- wp:html -->
-<svg viewBox="0 0 40 40" fill="none" stroke="#4A9CFF" stroke-width="1.6" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="m14 20 4 4 8-9"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-8.svg" alt=""/></figure>
+<!-- /wp:image -->
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Check it worked</h3>
 <!-- /wp:heading -->
@@ -313,9 +313,9 @@
 <div class="wp-block-group reality glass rise">
 <!-- wp:group {"className":"shield","layout":{"type":"default"}} -->
 <div class="wp-block-group shield">
-<!-- wp:html -->
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 20 6v6c0 5-3.5 8-8 9.5C7.5 20 4 17 4 12V6Z"/><path d="M12 8v5M12 16h.01"/></svg>
-<!-- /wp:html -->
+<!-- wp:image {"sizeSlug":"full","className":"ico"} -->
+<figure class="wp-block-image size-full ico"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/icon-4.svg" alt=""/></figure>
+<!-- /wp:image -->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"layout":{"type":"default"}} -->
@@ -344,9 +344,16 @@
 <div class="wp-block-group wrap">
 <!-- wp:group {"className":"final-card glass","layout":{"type":"default"}} -->
 <div class="wp-block-group final-card glass">
-<!-- wp:html -->
-<span class="lte-mark m-final" aria-hidden="true"><i class="m-l"></i><i class="m-a"></i></span>
-<!-- /wp:html -->
+<!-- wp:group {"className":"lte-mark m-final","layout":{"type":"default"}} -->
+<div class="wp-block-group lte-mark m-final">
+<!-- wp:group {"className":"m-l","layout":{"type":"default"}} -->
+<div class="wp-block-group m-l"></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"m-a","layout":{"type":"default"}} -->
+<div class="wp-block-group m-a"></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 <!-- wp:paragraph {"className":"pill rise"} -->
 <p class="pill rise">Live on TikTok, entries on Telegram</p>
 <!-- /wp:paragraph -->

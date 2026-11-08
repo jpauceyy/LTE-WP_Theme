@@ -10,3 +10,14 @@ body,.editor-styles-wrapper{background:radial-gradient(60% 50% at 75% 35%,rgba(4
 .editor-styles-wrapper .wp-block-group.wrap{margin-inline:auto}
 .editor-styles-wrapper .wp-block-template-part.hdr{position:relative}
 .editor-styles-wrapper [data-type="core/group"]>.block-list-appender{display:none}
+
+/* Empty core Groups used as decorative layers (logo mark, weight bar fill)
+   render as a layout placeholder in the editor; collapse it back to the bare layer. */
+.lte-mark>div,.weight .bar>div{position:absolute;inset:0;margin:0!important}
+.weight .bar{position:relative}
+.wp-block-group__placeholder.m-l,.wp-block-group__placeholder.m-a,.wp-block-group__placeholder.bar-fill{min-height:0!important;padding:0!important;border:0!important;box-shadow:none!important;outline:0!important}
+.wp-block-group__placeholder.m-l,.wp-block-group__placeholder.m-a{position:absolute;inset:0;margin:0;background-position:center;background-size:contain;background-repeat:no-repeat}
+.wp-block-group__placeholder.bar-fill{height:100%;margin:0}
+.wp-block-group__placeholder.m-l>*,.wp-block-group__placeholder.m-a>*,.wp-block-group__placeholder.bar-fill>*{display:none!important}
+.lte-mark>div::before,.lte-mark>div::after,.weight .bar>div::before,.weight .bar>div::after{display:none!important}
+.editor-styles-wrapper .lte-mark.m-final{margin-bottom:22px!important}
