@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/home-hero",
+  "title": "Home: Hero (Learn to trade goldand silve…)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "string",
+      "default": "Gold / Silver / Bitcoin / Ethereum"
+    },
+    "f2": {
+      "type": "string",
+      "default": "Learn to trade gold<br>and silver with <em>structure.</em>"
+    },
+    "f3": {
+      "type": "string",
+      "default": "Learn Try Earn is led by Luke, an independent trader for nearly 10 years. We focus on gold and silver, with some Bitcoin and Ethereum, trade live on TikTok and post every entry in Telegram."
+    },
+    "f4": {
+      "type": "string",
+      "default": "Join our Telegram"
+    },
+    "f5": {
+      "type": "string",
+      "default": "https://t.me/learntryearn"
+    },
+    "f6": {
+      "type": "string",
+      "default": "Watch us live on TikTok"
+    },
+    "f7": {
+      "type": "string",
+      "default": "https://www.tiktok.com/@learntryearn"
+    },
+    "f8": {
+      "type": "string",
+      "default": "Educational content, not financial advice. Trading involves risk."
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

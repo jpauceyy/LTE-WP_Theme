@@ -1,0 +1,137 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/home-markets",
+  "title": "Home: Markets (Precious metals first. Crypt…)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "string",
+      "default": "Precious metals first. Crypto <em>second.</em>"
+    },
+    "f2": {
+      "type": "string",
+      "default": "Gold and silver sit at the centre of everything we teach. Bitcoin and Ethereum are traded occasionally and make up a smaller part of the activity. Here’s what every beginner should know about each."
+    },
+    "f3": {
+      "type": "string",
+      "default": "Main focus"
+    },
+    "f4": {
+      "type": "string",
+      "default": "Where most of the analysis and trading happens"
+    },
+    "f5": {
+      "type": "string",
+      "default": "Gold, <em>XAUUSD</em>"
+    },
+    "f6": {
+      "type": "string",
+      "default": "Gold vs US dollar"
+    },
+    "f7": {
+      "type": "string",
+      "default": "What it is"
+    },
+    "f8": {
+      "type": "string",
+      "default": "The price of one ounce of gold in US dollars."
+    },
+    "f9": {
+      "type": "string",
+      "default": "What moves it"
+    },
+    "f10": {
+      "type": "string",
+      "default": "Interest rate expectations, the US dollar, inflation data and global uncertainty."
+    },
+    "f11": {
+      "type": "string",
+      "default": "Busiest"
+    },
+    "f12": {
+      "type": "string",
+      "default": "London and New York sessions, and around US data such as CPI and NFP."
+    },
+    "f13": {
+      "type": "string",
+      "default": "Beginner tip"
+    },
+    "f14": {
+      "type": "string",
+      "default": "Gold can move fast. Size on your stop distance, not your confidence."
+    },
+    "f15": {
+      "type": "string",
+      "default": "Silver, <em>XAGUSD</em>"
+    },
+    "f16": {
+      "type": "string",
+      "default": "Silver vs US dollar"
+    },
+    "f17": {
+      "type": "string",
+      "default": "What it is"
+    },
+    "f18": {
+      "type": "string",
+      "default": "The price of one ounce of silver in US dollars."
+    },
+    "f19": {
+      "type": "string",
+      "default": "What moves it"
+    },
+    "f20": {
+      "type": "string",
+      "default": "The US dollar, interest rate expectations, industrial demand and the direction of gold."
+    },
+    "f21": {
+      "type": "string",
+      "default": "Busiest"
+    },
+    "f22": {
+      "type": "string",
+      "default": "London and New York sessions, much like gold."
+    },
+    "f23": {
+      "type": "string",
+      "default": "Beginner tip"
+    },
+    "f24": {
+      "type": "string",
+      "default": "Silver often moves more sharply than gold in percentage terms, so size positions carefully."
+    },
+    "f25": {
+      "type": "string",
+      "default": "Traded occasionally"
+    },
+    "f26": {
+      "type": "string",
+      "default": "A smaller part of the activity"
+    },
+    "f27": {
+      "type": "string",
+      "default": "Bitcoin, <em>BTCUSD</em>"
+    },
+    "f28": {
+      "type": "string",
+      "default": "Trades around the clock and moves further in percentage terms, so a smaller size can carry the same risk."
+    },
+    "f29": {
+      "type": "string",
+      "default": "Ethereum, <em>ETHUSD</em>"
+    },
+    "f30": {
+      "type": "string",
+      "default": "Often follows Bitcoin’s direction with larger swings. Driven by sentiment, risk appetite and crypto news."
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

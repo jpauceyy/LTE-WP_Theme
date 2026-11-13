@@ -27,12 +27,12 @@ add_action( 'after_setup_theme', 'lte_setup' );
 function lte_block_assets() {
 	$uri = get_template_directory_uri();
 	$dir = get_template_directory();
-	wp_enqueue_style( 'lte-theme', $uri . '/assets/css/theme.css', array(), filemtime( $dir . '/assets/css/theme.css' ) );
+	wp_enqueue_style( 'lte-theme', $uri . '/assets/css/theme.css', is_admin() ? array() : array( 'global-styles' ), filemtime( $dir . '/assets/css/theme.css' ) );
 	if ( is_admin() ) {
 		wp_enqueue_style( 'lte-editor', $uri . '/assets/css/editor.css', array( 'lte-theme' ), filemtime( $dir . '/assets/css/editor.css' ) );
 	}
 }
-add_action( 'enqueue_block_assets', 'lte_block_assets' );
+add_action( 'enqueue_block_assets', 'lte_block_assets', 20 );
 
 /**
  * Front-end behaviour (reveals, tilt, scroll effects, slider, contact form).
@@ -167,3 +167,71 @@ function lte_maybe_flush() {
 	}
 }
 add_action( 'init', 'lte_maybe_flush', 99 );
+
+
+/**
+ * Admin skin: left menu + login page only (the rest of wp-admin stays default).
+ */
+function lte_admin_skin() {
+	$uri = get_template_directory_uri();
+	$dir = get_template_directory();
+	wp_enqueue_style( 'lte-admin', $uri . '/assets/css/admin.css', array(), filemtime( $dir . '/assets/css/admin.css' ) );
+	wp_add_inline_style( 'lte-admin', ':root{--l-logo-l:url("' . esc_url( $uri . '/assets/img/logo-letters.png' ) . '");--l-logo-a:url("' . esc_url( $uri . '/assets/img/logo-arrow.png' ) . '")}' );
+}
+add_action( 'admin_enqueue_scripts', 'lte_admin_skin' );
+add_action( 'login_enqueue_scripts', 'lte_admin_skin' );
+
+add_filter( 'login_headerurl', function () { return home_url( '/' ); } );
+add_filter( 'login_headertext', function () { return get_bloginfo( 'name' ); } );
+
+
+/* ---------- Custom section blocks (src/blocks -> build/blocks) ---------- */
+function lte_kses( $html ) {
+	return wp_kses(
+		(string) $html,
+		array(
+			'em'     => array(), 'strong' => array(), 'b' => array(), 'i' => array(), 'br' => array(), 'u' => array(),
+			'sup'    => array(), 'sub' => array(), 'code' => array(), 'small' => array(),
+			'mark'   => array( 'style' => true, 'class' => true ),
+			'span'   => array( 'class' => true, 'style' => true ),
+			'a'      => array( 'href' => true, 'target' => true, 'rel' => true ),
+		)
+	);
+}
+
+/** Link URL: "#anchor" becomes home/#anchor when not on the front page. */
+function lte_url( $url ) {
+	$url = (string) $url;
+	if ( '' !== $url && '#' === $url[0] && ! is_front_page() ) {
+		$url = home_url( '/' ) . $url;
+	}
+	return esc_url( $url );
+}
+
+function lte_register_blocks() {
+	foreach ( glob( get_template_directory() . '/build/blocks/*/block.json' ) as $file ) {
+		register_block_type( dirname( $file ) );
+	}
+}
+add_action( 'init', 'lte_register_blocks' );
+
+add_filter( 'block_categories_all', function ( $cats ) {
+	array_unshift( $cats, array( 'slug' => 'lte', 'title' => __( 'Learn Try Earn sections', 'lte' ) ) );
+	return $cats;
+} );
+
+add_action( 'enqueue_block_editor_assets', function () {
+	wp_register_script( 'lte-editor-vars', '' );
+	wp_enqueue_script( 'lte-editor-vars' );
+	wp_add_inline_script( 'lte-editor-vars', 'window.lteTheme=' . wp_json_encode( get_template_directory_uri() ) . ';' );
+} );
+
+
+/** Image field value ({id,url,alt}); 'THEME:/path' points at a file shipped with the theme. */
+function lte_img_src( $img ) {
+	$url = is_array( $img ) ? (string) ( $img['url'] ?? '' ) : '';
+	if ( 0 === strpos( $url, 'THEME:' ) ) {
+		return get_template_directory_uri() . substr( $url, 6 );
+	}
+	return $url;
+}

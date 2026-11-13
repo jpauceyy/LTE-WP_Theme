@@ -1,0 +1,105 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lte/contact-hero",
+	"title": "Contact: Hero (Get in touch.)",
+	"category": "lte",
+	"icon": "layout",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"customClassName": false
+	},
+	"attributes": {
+		"f1": {
+			"type": "string",
+			"default": "<a href=\"/\">Home</a> / Contact"
+		},
+		"f2": {
+			"type": "string",
+			"default": "We reply within 2 working days"
+		},
+		"f3": {
+			"type": "string",
+			"default": "Get in <em>touch.</em>"
+		},
+		"f4": {
+			"type": "string",
+			"default": "Questions about the Telegram, getting set up with Vantage, or working together? Send a message and Luke will get back to you."
+		},
+		"f5": {
+			"type": "string",
+			"default": "Telegram<small>Fastest for trade questions</small>"
+		},
+		"f6": {
+			"type": "string",
+			"default": "https://t.me/learntryearn"
+		},
+		"f7": {
+			"type": "string",
+			"default": "TikTok<small>Ask during a live session</small>"
+		},
+		"f8": {
+			"type": "string",
+			"default": "https://www.tiktok.com/@learntryearn"
+		},
+		"f9": {
+			"type": "string",
+			"default": "Name"
+		},
+		"f10": {
+			"type": "string",
+			"default": "Email"
+		},
+		"f11": {
+			"type": "string",
+			"default": "What’s it about?"
+		},
+		"f12": {
+			"type": "string",
+			"default": "Message"
+		},
+		"f13": {
+			"type": "string",
+			"default": "I’m happy for Learn Try Earn to reply to me by email about this message."
+		},
+		"f14": {
+			"type": "string",
+			"default": "Send message"
+		},
+		"f15": {
+			"type": "string",
+			"default": "We never give investment advice by email."
+		},
+		"f16": {
+			"type": "string",
+			"default": "Message <em>sent.</em>"
+		},
+		"f17": {
+			"type": "string",
+			"default": "Thanks for getting in touch. We’ve emailed you a confirmation, and Luke will reply within 2 working days."
+		},
+		"f18": {
+			"type": "string",
+			"default": "Join our Telegram"
+		},
+		"f19": {
+			"type": "string",
+			"default": "https://t.me/learntryearn"
+		},
+		"f20": {
+			"type": "string",
+			"default": "Back to home"
+		},
+		"f21": {
+			"type": "string",
+			"default": "/"
+		},
+		"formEmail": {
+			"type": "string",
+			"default": "contact@lukefenners.com"
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

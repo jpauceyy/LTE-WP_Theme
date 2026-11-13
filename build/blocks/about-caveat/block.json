@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/about-caveat",
+  "title": "About: Caveat (Experience doesn’t remove un…)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-4.svg",
+        "alt": ""
+      }
+    },
+    "f2": {
+      "type": "string",
+      "default": "Experience doesn’t remove <em>uncertainty.</em>"
+    },
+    "f3": {
+      "type": "string",
+      "default": "Nearly 10 years of independent trading provides the background to this platform, but experience does not remove uncertainty. <strong>Losses are part of trading, and no strategy or educational service can guarantee profitability.</strong>"
+    },
+    "f4": {
+      "type": "string",
+      "default": "What I want to offer is a clear, grounded learning environment where the emphasis is on knowledge, personal responsibility and developing a process you understand."
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

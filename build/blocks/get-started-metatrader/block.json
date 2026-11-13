@@ -1,0 +1,109 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/get-started-metatrader",
+  "title": "Get started: Metatrader (Link it to MetaTrader 4 or 5.)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "string",
+      "default": "Link it to MetaTrader 4 or <em>5.</em>"
+    },
+    "f2": {
+      "type": "string",
+      "default": "MetaTrader is where you’ll see the charts and place trades. You log in with the trading account Vantage created for you."
+    },
+    "f3": {
+      "type": "string",
+      "default": "01"
+    },
+    "f4": {
+      "type": "string",
+      "default": "Find your login details"
+    },
+    "f5": {
+      "type": "string",
+      "default": "Vantage emails your trading account number and server after setup. You can also find them in the Client Portal under <strong>Accounts</strong>, next to MT4 or MT5."
+    },
+    "f6": {
+      "type": "string",
+      "default": "02"
+    },
+    "f7": {
+      "type": "string",
+      "default": "Install MetaTrader"
+    },
+    "f8": {
+      "type": "string",
+      "default": "Download the version that matches your account (MT4 or MT5) from the Vantage Client Portal, or get the MetaTrader app from the App Store or Google Play."
+    },
+    "f9": {
+      "type": "string",
+      "default": "03"
+    },
+    "f10": {
+      "type": "string",
+      "default": "Log in to your account"
+    },
+    "f11": {
+      "type": "string",
+      "default": "Enter your account number and trading password, then choose the exact Vantage server shown in your portal. Type the password by hand rather than pasting it."
+    },
+    "f12": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-6.svg",
+        "alt": ""
+      }
+    },
+    "f13": {
+      "type": "string",
+      "default": "On desktop"
+    },
+    "f14": {
+      "type": "string",
+      "default": "Open MetaTrader, go to <strong>File → Login to Trade Account</strong>, enter your account number and password, select your Vantage server and click Login."
+    },
+    "f15": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-7.svg",
+        "alt": ""
+      }
+    },
+    "f16": {
+      "type": "string",
+      "default": "On mobile"
+    },
+    "f17": {
+      "type": "string",
+      "default": "In the MetaTrader app, go to <strong>Settings → New Account</strong> (or Manage Accounts → +), search for <strong>Vantage</strong>, pick your server and sign in."
+    },
+    "f18": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-8.svg",
+        "alt": ""
+      }
+    },
+    "f19": {
+      "type": "string",
+      "default": "Check it worked"
+    },
+    "f20": {
+      "type": "string",
+      "default": "You’ll see your balance in the Trade tab and live prices moving. If it says “Invalid account”, check the server name and that MT4/MT5 matches your account."
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

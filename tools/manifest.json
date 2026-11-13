@@ -1,0 +1,35 @@
+{
+  "home": [
+    "lte/home-hero",
+    "lte/home-about",
+    "lte/home-founder",
+    "lte/home-markets",
+    "lte/home-risk",
+    "lte/home-telegram",
+    "lte/home-start",
+    "lte/home-reviews",
+    "lte/home-cta"
+  ],
+  "about": [
+    "lte/about-hero",
+    "lte/about-story",
+    "lte/about-principles",
+    "lte/about-focus",
+    "lte/about-approach",
+    "lte/about-goal",
+    "lte/about-caveat",
+    "lte/about-cta"
+  ],
+  "get-started": [
+    "lte/get-started-hero",
+    "lte/get-started-account",
+    "lte/get-started-metatrader",
+    "lte/get-started-checklist",
+    "lte/get-started-risk",
+    "lte/get-started-cta"
+  ],
+  "contact": [
+    "lte/contact-hero",
+    "lte/contact-cta"
+  ]
+}

@@ -21,7 +21,7 @@ Requires WordPress 6.5+ and PHP 7.4+.
 | `[Broker name]`, `[Regulator]`, `[x]`, `[amount]`, `[Platform]`, `[Free / £x]` | Home, "How to start" cards |
 | Photo of Luke | Replace the "L" portrait group on Home and About with an Image block |
 | Member reviews | Home, "What members say" (placeholders, use real reviews with permission) |
-| Contact form recipient | Contact page > the form's Custom HTML block (`action="https://formsubmit.co/your-email"`) |
+| Contact form recipient | Contact page > select the hero block > sidebar "Contact form" > email |
 | Legal links (Privacy, Terms, Cookies, Risk disclosure) | Footer template part |
 
 ## Structure

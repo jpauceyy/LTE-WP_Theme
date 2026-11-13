@@ -21,3 +21,20 @@ body,.editor-styles-wrapper{background:radial-gradient(60% 50% at 75% 35%,rgba(4
 .wp-block-group__placeholder.m-l>*,.wp-block-group__placeholder.m-a>*,.wp-block-group__placeholder.bar-fill>*{display:none!important}
 .lte-mark>div::before,.lte-mark>div::after,.weight .bar>div::before,.weight .bar>div::after{display:none!important}
 .editor-styles-wrapper .lte-mark.m-final{margin-bottom:22px!important}
+
+/* ---- custom section blocks: in-place editing helpers ---- */
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper,.editor-styles-wrapper .editor-post-title{display:none}
+.lte-lf{position:relative;display:inline-flex;max-width:100%}
+.lte-lf>a{display:inline-flex;align-items:center}
+.lte-lf .lte-linkbtn{position:absolute;top:-10px;right:-10px;min-width:26px;width:26px;height:26px;padding:0;border-radius:50%;background:#0A1730;color:#4A9CFF;border:1px solid rgba(74,156,255,.7);opacity:0;transition:opacity .15s;z-index:5}
+.lte-lf:hover .lte-linkbtn,.lte-lf:focus-within .lte-linkbtn,.is-selected .lte-lf .lte-linkbtn{opacity:1}
+.lte-lf .lte-linkbtn svg{fill:currentColor}
+.wp-block-button:has(.lte-lf){overflow:visible}
+.editor-styles-wrapper [class^="wp-block-lte-"] a{pointer-events:auto}
+.editor-styles-wrapper .block-editor-rich-text__editable{outline:0}
+.editor-styles-wrapper [class*="wp-block-lte-"]:hover{outline:1px dashed rgba(74,156,255,.35);outline-offset:-1px}
+.editor-styles-wrapper [class*="wp-block-lte-"].is-selected{outline:2px solid #4A9CFF;outline-offset:-2px}
+
+.lte-imgedit{position:relative;display:inline-block;cursor:pointer}.lte-imgedit .lte-imgbtn{position:absolute;top:-8px;right:-8px;min-width:24px;width:24px;height:24px;padding:0;border-radius:50%;background:#0A1730;color:#4A9CFF;border:1px solid rgba(74,156,255,.7);opacity:0;transition:opacity .15s}.lte-imgedit:hover .lte-imgbtn{opacity:1}.lte-imgbtn svg{fill:currentColor}
+.lte-photo-ctl{position:absolute;left:12px;right:12px;top:12px;z-index:6;display:flex;gap:8px;flex-wrap:wrap}
+.lte-lf-wrap{display:inline-flex}

@@ -1,0 +1,73 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lte/about-story",
+	"title": "About: Story (From the trading floor to tr…)",
+	"category": "lte",
+	"icon": "layout",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"customClassName": false
+	},
+	"attributes": {
+		"f1": {
+			"type": "string",
+			"default": "From the trading floor to trading <em>independently.</em>"
+		},
+		"f2": {
+			"type": "string",
+			"default": "How nearly 10 years of independent trading began, and why it shapes the way Learn Try Earn teaches."
+		},
+		"f3": {
+			"type": "string",
+			"default": "The ambition"
+		},
+		"f4": {
+			"type": "string",
+			"default": "A seat on a London trading <em>floor.</em>"
+		},
+		"f5": {
+			"type": "string",
+			"default": "My interest in financial markets originally led me to consider a career in investment banking in London, with the ambition of working on a trading floor. I was drawn to the analytical thinking, fast-moving environment and challenge of making decisions as markets responded to events around the world."
+		},
+		"f6": {
+			"type": "string",
+			"default": "The decision"
+		},
+		"f7": {
+			"type": "string",
+			"default": "Choosing to trade <em>independently.</em>"
+		},
+		"f8": {
+			"type": "string",
+			"default": "As I considered the direction I wanted my life to take, I decided that trading independently was a better fit for me. It offered the freedom to develop my own approach and build my working life around my priorities, while taking responsibility for my own decisions."
+		},
+		"f9": {
+			"type": "string",
+			"default": "The responsibility"
+		},
+		"f10": {
+			"type": "string",
+			"default": "Independence comes with <em>accountability.</em>"
+		},
+		"f11": {
+			"type": "string",
+			"default": "You have to establish your own structure, question your judgement and accept the consequences when an idea does not work out."
+		},
+		"f12": {
+			"type": "string",
+			"default": "Today"
+		},
+		"f13": {
+			"type": "string",
+			"default": "Learn Try <em>Earn.</em>"
+		},
+		"f14": {
+			"type": "string",
+			"default": "Those principles shape the approach I want to share through Learn Try Earn: explaining the markets I trade and helping you build a clearer understanding of trading."
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,73 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lte/home-reviews",
+	"title": "Home: Reviews (What members say.)",
+	"category": "lte",
+	"icon": "layout",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"customClassName": false
+	},
+	"attributes": {
+		"f1": {
+			"type": "string",
+			"default": "What members <em>say.</em>"
+		},
+		"f2": {
+			"type": "string",
+			"default": "Placeholder review"
+		},
+		"f3": {
+			"type": "string",
+			"default": "[Add a real, verified member review. Get written permission before publishing.]"
+		},
+		"f4": {
+			"type": "string",
+			"default": "[Member first name]"
+		},
+		"f5": {
+			"type": "string",
+			"default": "Member since [month, year]"
+		},
+		"f6": {
+			"type": "string",
+			"default": "Placeholder review"
+		},
+		"f7": {
+			"type": "string",
+			"default": "[Add a real, verified member review about what they learned, not about profits.]"
+		},
+		"f8": {
+			"type": "string",
+			"default": "[Member first name]"
+		},
+		"f9": {
+			"type": "string",
+			"default": "Member since [month, year]"
+		},
+		"f10": {
+			"type": "string",
+			"default": "Placeholder review"
+		},
+		"f11": {
+			"type": "string",
+			"default": "[Add a real, verified member review in their own words.]"
+		},
+		"f12": {
+			"type": "string",
+			"default": "[Member first name]"
+		},
+		"f13": {
+			"type": "string",
+			"default": "Member since [month, year]"
+		},
+		"f14": {
+			"type": "string",
+			"default": "Reviews describe individual experiences. They are not typical results and do not guarantee any outcome."
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

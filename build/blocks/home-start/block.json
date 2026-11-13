@@ -1,0 +1,165 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/home-start",
+  "title": "Home: Start (How to start trading.)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "string",
+      "default": "How to start <em>trading.</em>"
+    },
+    "f2": {
+      "type": "string",
+      "default": "Three steps, in order. Use the slider to see what a small, fixed risk looks like on your account."
+    },
+    "f3": {
+      "type": "string",
+      "default": "What would you start with?"
+    },
+    "f4": {
+      "type": "string",
+      "default": "$1,000"
+    },
+    "f5": {
+      "type": "string",
+      "default": "<span>$100</span><span>$2,500</span><span>$5,000</span><span>$10,000</span>"
+    },
+    "f6": {
+      "type": "string",
+      "default": "Step 1"
+    },
+    "f7": {
+      "type": "string",
+      "default": "Watch"
+    },
+    "f8": {
+      "type": "string",
+      "default": "Free"
+    },
+    "f9": {
+      "type": "string",
+      "default": "See how a trade is planned before you risk anything."
+    },
+    "f10": {
+      "type": "string",
+      "default": "Live trading on TikTok"
+    },
+    "f11": {
+      "type": "string",
+      "default": "Gold and silver, explained"
+    },
+    "f12": {
+      "type": "string",
+      "default": "No account needed"
+    },
+    "f13": {
+      "type": "string",
+      "default": "Watch us live on TikTok"
+    },
+    "f14": {
+      "type": "string",
+      "default": "https://www.tiktok.com/@learntryearn"
+    },
+    "f15": {
+      "type": "string",
+      "default": "Start here"
+    },
+    "f16": {
+      "type": "string",
+      "default": "Step 2"
+    },
+    "f17": {
+      "type": "string",
+      "default": "Learn"
+    },
+    "f18": {
+      "type": "string",
+      "default": "<em>[Free / £x]</em>"
+    },
+    "f19": {
+      "type": "string",
+      "default": "Join the community and follow the full process every day."
+    },
+    "f20": {
+      "type": "string",
+      "default": "Entries with stop-loss and target"
+    },
+    "f21": {
+      "type": "string",
+      "default": "Daily gold and silver analysis"
+    },
+    "f22": {
+      "type": "string",
+      "default": "Reviews, questions and live alerts"
+    },
+    "f23": {
+      "type": "string",
+      "default": "Join our Telegram"
+    },
+    "f24": {
+      "type": "string",
+      "default": "https://t.me/learntryearn"
+    },
+    "f25": {
+      "type": "string",
+      "default": "Step 3"
+    },
+    "f26": {
+      "type": "string",
+      "default": "Trade with [Broker name]"
+    },
+    "f27": {
+      "type": "string",
+      "default": "Demo <em>first.</em>"
+    },
+    "f28": {
+      "type": "string",
+      "default": "The broker we use on our lives. Practise on demo, then go live small."
+    },
+    "f29": {
+      "type": "string",
+      "default": "Regulated by [Regulator], licence [number]"
+    },
+    "f30": {
+      "type": "string",
+      "default": "Gold, silver and crypto, spreads from [x]"
+    },
+    "f31": {
+      "type": "string",
+      "default": "[Platform], minimum deposit [amount]"
+    },
+    "f32": {
+      "type": "string",
+      "default": "$1,000"
+    },
+    "f33": {
+      "type": "string",
+      "default": "$10"
+    },
+    "f34": {
+      "type": "string",
+      "default": "Open an account with [Broker name]"
+    },
+    "f35": {
+      "type": "string",
+      "default": "https://YOUR-BROKER-LINK.com"
+    },
+    "f36": {
+      "type": "string",
+      "default": "Disclosure: LTE may receive a commission if you open an account using our link. Always check a broker’s regulation yourself."
+    },
+    "f37": {
+      "type": "string",
+      "default": "<strong>Risk warning:</strong> Trading involves significant risk and you may lose more than your deposit. Content is educational and not financial advice. Losses can exceed the planned amount through gaps and slippage."
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

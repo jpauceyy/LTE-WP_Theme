@@ -1,0 +1,89 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/home-founder",
+  "title": "Home: Founder (Meet Luke, our founder.)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "object",
+      "default": {}
+    },
+    "f2": {
+      "type": "string",
+      "default": "L"
+    },
+    "f3": {
+      "type": "string",
+      "default": "[Add a photo of Luke]"
+    },
+    "f4": {
+      "type": "string",
+      "default": "Nearly 10 years"
+    },
+    "f5": {
+      "type": "string",
+      "default": "trading independently"
+    },
+    "f6": {
+      "type": "string",
+      "default": "Gold and silver"
+    },
+    "f7": {
+      "type": "string",
+      "default": "main focus"
+    },
+    "f8": {
+      "type": "string",
+      "default": "Meet Luke, our <em>founder.</em>"
+    },
+    "f9": {
+      "type": "string",
+      "default": "I’m Luke, and I’ve been trading independently for nearly 10 years. I created Learn Try Earn to share my experience, explain the markets I trade and help others build a clearer understanding of trading."
+    },
+    "f10": {
+      "type": "string",
+      "default": "“Independence comes with accountability. You have to establish your own structure, question your judgement and accept the consequences when an idea does not work out.”"
+    },
+    "f11": {
+      "type": "string",
+      "default": "Nearly 10 years"
+    },
+    "f12": {
+      "type": "string",
+      "default": "trading independently"
+    },
+    "f13": {
+      "type": "string",
+      "default": "Gold and silver"
+    },
+    "f14": {
+      "type": "string",
+      "default": "main focus"
+    },
+    "f15": {
+      "type": "string",
+      "default": "Bitcoin and Ethereum"
+    },
+    "f16": {
+      "type": "string",
+      "default": "traded occasionally"
+    },
+    "f17": {
+      "type": "string",
+      "default": "Read Luke’s story"
+    },
+    "f18": {
+      "type": "string",
+      "default": "/about/"
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lte/about-principles",
+  "title": "About: Principles (The principles behind the pr…)",
+  "category": "lte",
+  "icon": "layout",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "f1": {
+      "type": "string",
+      "default": "The principles behind the <em>process.</em>"
+    },
+    "f2": {
+      "type": "string",
+      "default": "Trading on your own means nobody else sets the rules. These three come first."
+    },
+    "f3": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-1.svg",
+        "alt": ""
+      }
+    },
+    "f4": {
+      "type": "string",
+      "default": "Establish your own structure"
+    },
+    "f5": {
+      "type": "string",
+      "default": "Decide what you trade, what you’re looking for and how much you’re prepared to risk before the market gives you a reason to act."
+    },
+    "f6": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-2.svg",
+        "alt": ""
+      }
+    },
+    "f7": {
+      "type": "string",
+      "default": "Question your judgement"
+    },
+    "f8": {
+      "type": "string",
+      "default": "Test every idea against the chart and the plan. Feeling confident is not a reason to enter a trade."
+    },
+    "f9": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "THEME:/assets/img/icons/icon-3.svg",
+        "alt": ""
+      }
+    },
+    "f10": {
+      "type": "string",
+      "default": "Accept the consequences"
+    },
+    "f11": {
+      "type": "string",
+      "default": "Some ideas won’t work out. Planning the downside first means a loss is an outcome you prepared for, not a surprise."
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

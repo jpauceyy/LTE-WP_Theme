@@ -1,0 +1,47 @@
+/* Learn Try Earn: left admin menu + login page skin. The rest of wp-admin stays WordPress default. */
+@font-face{font-family:Geist;font-weight:100 900;font-display:swap;src:url(../fonts/geist-latin-wght-normal.woff2) format("woff2")}
+@font-face{font-family:"Geist Mono";font-weight:100 900;font-display:swap;src:url(../fonts/geist-mono-latin-wght-normal.woff2) format("woff2")}
+
+:root{--l-bg:#040A18;--l-deep:#030915;--l-surface:#0A1730;--l-surface2:#0F1F40;--l-line:rgba(255,255,255,.1);--l-line2:rgba(255,255,255,.18);--l-fg:#E6EEFF;--l-soft:#C4D0EC;--l-muted:#9EAED0;--l-dim:#8394B8;--l-acc:#4A9CFF;--l-acc2:#2A78F0;--l-on:#02122B;--l-bad:#FF6B5E}
+
+/* ---------- left panel ---------- */
+#adminmenuback,#adminmenuwrap,#adminmenu{background:var(--l-deep);font-family:Geist,system-ui,sans-serif}
+#adminmenuwrap{border-right:1px solid var(--l-line)}
+#adminmenu a{color:var(--l-soft)}
+#adminmenu div.wp-menu-image:before{color:var(--l-dim)}
+#adminmenu li.menu-top:hover,#adminmenu li.opensub>a.menu-top,#adminmenu li>a.menu-top:focus{background:var(--l-surface2);color:var(--l-acc)}
+#adminmenu li.menu-top:hover div.wp-menu-image:before,#adminmenu li.opensub>a.menu-top div.wp-menu-image:before{color:var(--l-acc)}
+#adminmenu li.current a.menu-top,#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,#adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,.folded #adminmenu li.current.menu-top{background:var(--l-acc);color:var(--l-on);font-weight:600}
+#adminmenu li.current a.menu-top div.wp-menu-image:before,#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu div.wp-menu-image:before{color:var(--l-on)}
+#adminmenu .wp-submenu,#adminmenu .wp-has-current-submenu .wp-submenu,#adminmenu a.wp-has-current-submenu:focus+.wp-submenu,.folded #adminmenu .wp-has-current-submenu .wp-submenu{background:var(--l-surface);border:0}
+#adminmenu .wp-submenu a{color:var(--l-muted)}
+#adminmenu .wp-submenu a:hover,#adminmenu .wp-submenu a:focus,#adminmenu .wp-submenu li.current a{color:var(--l-acc)}
+#adminmenu .wp-submenu li.current a{font-weight:600}
+#adminmenu li.wp-has-current-submenu.wp-menu-open .wp-submenu:after,#adminmenu li.current:after{display:none}
+#adminmenu .awaiting-mod,#adminmenu span.update-plugins,#adminmenu span.pending-count{background:var(--l-acc);color:var(--l-on)}
+#collapse-button{color:var(--l-dim)}#collapse-button:hover{color:var(--l-acc)}
+#adminmenu .separator{display:none}
+#adminmenu li.menu-top,#adminmenu li.menu-top>a,#adminmenu .wp-submenu{border-radius:0}
+
+/* ---------- login ---------- */
+body.login{font-family:Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--l-bg);color:var(--l-fg);display:flex;align-items:center;justify-content:center;min-height:100vh}
+body.login:before{content:"";position:fixed;inset:0;background:radial-gradient(60% 50% at 50% 0%,rgba(0,194,255,.2),transparent 70%),radial-gradient(50% 45% at 90% 100%,rgba(42,120,240,.16),transparent 70%);pointer-events:none}
+body.login ::selection{background:var(--l-acc);color:var(--l-on)}
+body.login #login{position:relative;width:min(400px,92vw);padding:0}
+body.login h1 a{background-image:var(--l-logo-a),var(--l-logo-l);background-size:contain,contain;background-position:center,center;background-repeat:no-repeat;filter:drop-shadow(0 0 10px rgba(74,156,255,.5));width:96px;height:84px;margin:0 auto 26px}
+body.login form{background:var(--l-surface);border:1px solid var(--l-line);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:28px;margin-top:0}
+body.login label,body.login .forgetmenot label{color:var(--l-soft);font-size:14px}
+body.login form .input,body.login input[type=text],body.login input[type=password]{background:var(--l-bg);color:var(--l-fg);border:1px solid var(--l-line2);border-radius:12px;box-shadow:none;font-size:16px;padding:10px 12px;margin-bottom:16px}
+body.login input:focus{border-color:var(--l-acc);box-shadow:0 0 0 1px var(--l-acc);outline:0}
+body.login input[type=checkbox]{background:var(--l-bg);border-color:var(--l-line2);border-radius:5px}
+body.login input[type=checkbox]:checked{background:var(--l-acc);border-color:var(--l-acc)}
+body.login input[type=checkbox]:checked:before{content:"\2713";color:var(--l-on);margin:-3px 0 0 -4px;font:700 14px/1 Geist,sans-serif;width:auto;height:auto;filter:none}
+body.login .button-primary{float:none;width:100%;padding:8px;min-height:46px;font-size:15px;border-radius:12px;background:var(--l-acc);border-color:var(--l-acc);color:var(--l-on);font-weight:600;box-shadow:0 0 24px rgba(74,156,255,.35);text-shadow:none}
+body.login .button-primary:hover,body.login .button-primary:focus{background:var(--l-acc2);border-color:var(--l-acc2);color:#fff}
+body.login .submit{margin-top:8px}
+body.login #nav a,body.login #backtoblog a,body.login .privacy-policy-page-link a{color:var(--l-muted)}
+body.login #nav a:hover,body.login #backtoblog a:hover{color:var(--l-acc)}
+body.login .message,body.login .success,body.login #login_error{background:var(--l-surface);border:1px solid var(--l-line);border-left:3px solid var(--l-acc);border-radius:12px;color:var(--l-soft);box-shadow:none}
+body.login #login_error{border-left-color:var(--l-bad)}
+body.login .wp-pwd .button.wp-hide-pw{color:var(--l-dim);background:transparent;border:0}
+body.login .language-switcher{display:none}

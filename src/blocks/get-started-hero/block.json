@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lte/get-started-hero",
+	"title": "Get started: Hero (How to get started, step by …)",
+	"category": "lte",
+	"icon": "layout",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"customClassName": false
+	},
+	"attributes": {
+		"f1": {
+			"type": "string",
+			"default": "<a href=\"/\">Home</a> / Get started"
+		},
+		"f2": {
+			"type": "string",
+			"default": "Vantage + MetaTrader 4 or 5"
+		},
+		"f3": {
+			"type": "string",
+			"default": "How to get started, <em>step by step.</em>"
+		},
+		"f4": {
+			"type": "string",
+			"default": "Open an account with our broker, Vantage, verify your details and connect it to MetaTrader 4 or MetaTrader 5. Most people are set up within a working day."
+		},
+		"f5": {
+			"type": "string",
+			"default": "Open a Vantage account"
+		},
+		"f6": {
+			"type": "string",
+			"default": "https://YOUR-BROKER-LINK.com"
+		},
+		"f7": {
+			"type": "string",
+			"default": "Already have one? Link MetaTrader"
+		},
+		"f8": {
+			"type": "string",
+			"default": "#metatrader"
+		},
+		"f9": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"url": "THEME:/assets/img/icons/icon-5.svg",
+				"alt": ""
+			}
+		},
+		"f10": {
+			"type": "string",
+			"default": "Have these ready"
+		},
+		"f11": {
+			"type": "string",
+			"default": "An email address and phone number, a photo ID (passport, driving licence or national ID card) and a proof of address dated within the last few months, such as a utility bill or bank statement."
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}
