@@ -15,55 +15,30 @@
 			"type": "string",
 			"default": "What members <em>say.</em>"
 		},
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Placeholder review",
+					"k2": "[Add a real, verified member review. Get written permission before publishing.]",
+					"k3": "[Member first name]",
+					"k4": "Member since [month, year]"
+				},
+				{
+					"k1": "Placeholder review",
+					"k2": "[Add a real, verified member review about what they learned, not about profits.]",
+					"k3": "[Member first name]",
+					"k4": "Member since [month, year]"
+				},
+				{
+					"k1": "Placeholder review",
+					"k2": "[Add a real, verified member review in their own words.]",
+					"k3": "[Member first name]",
+					"k4": "Member since [month, year]"
+				}
+			]
+		},
 		"f2": {
-			"type": "string",
-			"default": "Placeholder review"
-		},
-		"f3": {
-			"type": "string",
-			"default": "[Add a real, verified member review. Get written permission before publishing.]"
-		},
-		"f4": {
-			"type": "string",
-			"default": "[Member first name]"
-		},
-		"f5": {
-			"type": "string",
-			"default": "Member since [month, year]"
-		},
-		"f6": {
-			"type": "string",
-			"default": "Placeholder review"
-		},
-		"f7": {
-			"type": "string",
-			"default": "[Add a real, verified member review about what they learned, not about profits.]"
-		},
-		"f8": {
-			"type": "string",
-			"default": "[Member first name]"
-		},
-		"f9": {
-			"type": "string",
-			"default": "Member since [month, year]"
-		},
-		"f10": {
-			"type": "string",
-			"default": "Placeholder review"
-		},
-		"f11": {
-			"type": "string",
-			"default": "[Add a real, verified member review in their own words.]"
-		},
-		"f12": {
-			"type": "string",
-			"default": "[Member first name]"
-		},
-		"f13": {
-			"type": "string",
-			"default": "Member since [month, year]"
-		},
-		"f14": {
 			"type": "string",
 			"default": "Reviews describe individual experiences. They are not typical results and do not guarantee any outcome."
 		}

@@ -1,8 +1,8 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
-import { RawHTML } from '@wordpress/element';
-import { Rich, LteLink, LteUrlLink, LteImg, LtePhoto } from '../_shared/ui';
+import { RawHTML, Fragment } from '@wordpress/element';
+import { Rich, LteLink, LteUrlLink, LteImg, LtePhoto, Ctl, Add, setIn, LteRepeaterPanel } from '../_shared/ui';
 import metadata from './block.json';
 
 const STATIC = ["<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M21.4 4.3 2.9 11.5c-1.1.4-1 1.9.1 2.2l4.6 1.4 1.8 5.5c.3.9 1.4 1.1 2 .4l2.6-2.6 4.9 3.6c.7.5 1.7.1 1.9-.8l3-14.9c.2-1-.8-1.9-1.8-1.5Z\"></path></svg>","<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M16.6 3c.4 2.3 1.9 3.8 4.4 4v3.1a8 8 0 0 1-4.4-1.3v6.4a5.8 5.8 0 1 1-5.8-5.8l.9.1v3.2a2.7 2.7 0 1 0 1.9 2.6V3h3Z\"></path></svg>","<select id=\"cTopic\" name=\"topic\">\n              <option>General question</option>\n              <option>Telegram group</option>\n              <option>Getting started with Vantage</option>\n              <option>Business or collaboration</option>\n              <option>Something else</option>\n            </select>","<textarea id=\"cMsg\" name=\"message\" required placeholder=\"How can we help?\"></textarea>","<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"></path></svg>"];

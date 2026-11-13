@@ -35,99 +35,77 @@
       "type": "string",
       "default": "Gold vs US dollar"
     },
+    "r1": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "What it is",
+          "k2": "The price of one ounce of gold in US dollars."
+        },
+        {
+          "k1": "What moves it",
+          "k2": "Interest rate expectations, the US dollar, inflation data and global uncertainty."
+        },
+        {
+          "k1": "Busiest",
+          "k2": "London and New York sessions, and around US data such as CPI and NFP."
+        },
+        {
+          "k1": "Beginner tip",
+          "k2": "Gold can move fast. Size on your stop distance, not your confidence."
+        }
+      ]
+    },
     "f7": {
-      "type": "string",
-      "default": "What it is"
-    },
-    "f8": {
-      "type": "string",
-      "default": "The price of one ounce of gold in US dollars."
-    },
-    "f9": {
-      "type": "string",
-      "default": "What moves it"
-    },
-    "f10": {
-      "type": "string",
-      "default": "Interest rate expectations, the US dollar, inflation data and global uncertainty."
-    },
-    "f11": {
-      "type": "string",
-      "default": "Busiest"
-    },
-    "f12": {
-      "type": "string",
-      "default": "London and New York sessions, and around US data such as CPI and NFP."
-    },
-    "f13": {
-      "type": "string",
-      "default": "Beginner tip"
-    },
-    "f14": {
-      "type": "string",
-      "default": "Gold can move fast. Size on your stop distance, not your confidence."
-    },
-    "f15": {
       "type": "string",
       "default": "Silver, <em>XAGUSD</em>"
     },
-    "f16": {
+    "f8": {
       "type": "string",
       "default": "Silver vs US dollar"
     },
-    "f17": {
-      "type": "string",
-      "default": "What it is"
+    "r2": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "What it is",
+          "k2": "The price of one ounce of silver in US dollars."
+        },
+        {
+          "k1": "What moves it",
+          "k2": "The US dollar, interest rate expectations, industrial demand and the direction of gold."
+        },
+        {
+          "k1": "Busiest",
+          "k2": "London and New York sessions, much like gold."
+        },
+        {
+          "k1": "Beginner tip",
+          "k2": "Silver often moves more sharply than gold in percentage terms, so size positions carefully."
+        }
+      ]
     },
-    "f18": {
-      "type": "string",
-      "default": "The price of one ounce of silver in US dollars."
-    },
-    "f19": {
-      "type": "string",
-      "default": "What moves it"
-    },
-    "f20": {
-      "type": "string",
-      "default": "The US dollar, interest rate expectations, industrial demand and the direction of gold."
-    },
-    "f21": {
-      "type": "string",
-      "default": "Busiest"
-    },
-    "f22": {
-      "type": "string",
-      "default": "London and New York sessions, much like gold."
-    },
-    "f23": {
-      "type": "string",
-      "default": "Beginner tip"
-    },
-    "f24": {
-      "type": "string",
-      "default": "Silver often moves more sharply than gold in percentage terms, so size positions carefully."
-    },
-    "f25": {
+    "f9": {
       "type": "string",
       "default": "Traded occasionally"
     },
-    "f26": {
+    "f10": {
       "type": "string",
       "default": "A smaller part of the activity"
     },
-    "f27": {
+    "f11": {
       "type": "string",
       "default": "Bitcoin, <em>BTCUSD</em>"
     },
-    "f28": {
+    "f12": {
       "type": "string",
       "default": "Trades around the clock and moves further in percentage terms, so a smaller size can carry the same risk."
     },
-    "f29": {
+    "f13": {
       "type": "string",
       "default": "Ethereum, <em>ETHUSD</em>"
     },
-    "f30": {
+    "f14": {
       "type": "string",
       "default": "Often follows Bitcoin’s direction with larger swings. Driven by sentiment, risk appetite and crypto news."
     }

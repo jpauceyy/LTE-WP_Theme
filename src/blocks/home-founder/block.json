@@ -51,35 +51,28 @@
 			"type": "string",
 			"default": "“Independence comes with accountability. You have to establish your own structure, question your judgement and accept the consequences when an idea does not work out.”"
 		},
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Nearly 10 years",
+					"k2": "trading independently"
+				},
+				{
+					"k1": "Gold and silver",
+					"k2": "main focus"
+				},
+				{
+					"k1": "Bitcoin and Ethereum",
+					"k2": "traded occasionally"
+				}
+			]
+		},
 		"f11": {
-			"type": "string",
-			"default": "Nearly 10 years"
-		},
-		"f12": {
-			"type": "string",
-			"default": "trading independently"
-		},
-		"f13": {
-			"type": "string",
-			"default": "Gold and silver"
-		},
-		"f14": {
-			"type": "string",
-			"default": "main focus"
-		},
-		"f15": {
-			"type": "string",
-			"default": "Bitcoin and Ethereum"
-		},
-		"f16": {
-			"type": "string",
-			"default": "traded occasionally"
-		},
-		"f17": {
 			"type": "string",
 			"default": "Read Luke’s story"
 		},
-		"f18": {
+		"f12": {
 			"type": "string",
 			"default": "/about/"
 		}

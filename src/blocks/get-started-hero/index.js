@@ -1,7 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
-import { RawHTML } from '@wordpress/element';
-import { Rich, LteLink, LteUrlLink, LteImg, LtePhoto } from '../_shared/ui';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { RawHTML, Fragment } from '@wordpress/element';
+import { Rich, LteLink, LteUrlLink, LteImg, LtePhoto, Ctl, Add, setIn, LteRepeaterPanel } from '../_shared/ui';
 import metadata from './block.json';
 
 const STATIC = [];

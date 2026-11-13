@@ -23,13 +23,16 @@
       "type": "string",
       "default": "Experience doesn’t remove <em>uncertainty.</em>"
     },
-    "f3": {
-      "type": "string",
-      "default": "Nearly 10 years of independent trading provides the background to this platform, but experience does not remove uncertainty. <strong>Losses are part of trading, and no strategy or educational service can guarantee profitability.</strong>"
-    },
-    "f4": {
-      "type": "string",
-      "default": "What I want to offer is a clear, grounded learning environment where the emphasis is on knowledge, personal responsibility and developing a process you understand."
+    "r1": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "Nearly 10 years of independent trading provides the background to this platform, but experience does not remove uncertainty. <strong>Losses are part of trading, and no strategy or educational service can guarantee profitability.</strong>"
+        },
+        {
+          "k1": "What I want to offer is a clear, grounded learning environment where the emphasis is on knowledge, personal responsibility and developing a process you understand."
+        }
+      ]
     }
   },
   "render": "file:./render.php",

@@ -63,87 +63,77 @@
       "type": "string",
       "default": "We focus on the busiest hours, when gold moves cleanly and spreads tend to be tighter."
     },
+    "r1": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "00:00"
+        },
+        {
+          "k1": "London"
+        },
+        {
+          "k1": "New York"
+        },
+        {
+          "k1": "23:00"
+        }
+      ]
+    },
     "f14": {
-      "type": "string",
-      "default": "00:00"
-    },
-    "f15": {
-      "type": "string",
-      "default": "London"
-    },
-    "f16": {
-      "type": "string",
-      "default": "New York"
-    },
-    "f17": {
-      "type": "string",
-      "default": "23:00"
-    },
-    "f18": {
       "type": "string",
       "default": "Position sizing"
     },
-    "f19": {
+    "f15": {
       "type": "string",
       "default": "<span>1%<small>risk per trade</small></span>"
     },
-    "f20": {
+    "f16": {
       "type": "string",
       "default": "Size comes from the stop distance, so each loss stays small and planned."
     },
-    "f21": {
+    "f17": {
       "type": "string",
       "default": "No checklist, no trade"
     },
-    "f22": {
-      "type": "string",
-      "default": "Clear structure on the chart"
+    "r2": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "Clear structure on the chart",
+          "k2": "yes"
+        },
+        {
+          "k1": "Price inside our planned zone",
+          "k2": "yes"
+        },
+        {
+          "k1": "Stop-loss placed before entry",
+          "k2": "yes"
+        },
+        {
+          "k1": "Size set from the stop distance",
+          "k2": "yes"
+        }
+      ]
     },
-    "f23": {
-      "type": "string",
-      "default": "yes"
-    },
-    "f24": {
-      "type": "string",
-      "default": "Price inside our planned zone"
-    },
-    "f25": {
-      "type": "string",
-      "default": "yes"
-    },
-    "f26": {
-      "type": "string",
-      "default": "Stop-loss placed before entry"
-    },
-    "f27": {
-      "type": "string",
-      "default": "yes"
-    },
-    "f28": {
-      "type": "string",
-      "default": "Size set from the stop distance"
-    },
-    "f29": {
-      "type": "string",
-      "default": "yes"
-    },
-    "f30": {
+    "f18": {
       "type": "string",
       "default": "Live trading on TikTok"
     },
-    "f31": {
+    "f19": {
       "type": "string",
       "default": "See the plan used in real time"
     },
-    "f32": {
+    "f20": {
       "type": "string",
       "default": "We go live to mark levels, take or skip trades and answer your questions as we go. Losing trades are explained the same way as winners."
     },
-    "f33": {
+    "f21": {
       "type": "string",
       "default": "Watch us live on TikTok"
     },
-    "f34": {
+    "f22": {
       "type": "string",
       "default": "https://www.tiktok.com/@learntryearn"
     }

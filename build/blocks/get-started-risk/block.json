@@ -23,13 +23,16 @@
       "type": "string",
       "default": "Know the risk before you <em>deposit.</em>"
     },
-    "f3": {
-      "type": "string",
-      "default": "CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <strong>Only trade with money you can afford to lose.</strong>"
-    },
-    "f4": {
-      "type": "string",
-      "default": "Vantage’s products, terms and protections depend on where you live. Read the risk disclosure and terms for your region before you open an account. Learn Try Earn may earn a referral fee if you sign up through our link."
+    "r1": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <strong>Only trade with money you can afford to lose.</strong>"
+        },
+        {
+          "k1": "Vantage’s products, terms and protections depend on where you live. Read the risk disclosure and terms for your region before you open an account. Learn Try Earn may earn a referral fee if you sign up through our link."
+        }
+      ]
     }
   },
   "render": "file:./render.php",

@@ -23,37 +23,26 @@
 			"type": "string",
 			"default": "A demo uses the same platform and prices, so everything you learn carries straight over."
 		},
-		"f4": {
-			"type": "string",
-			"default": "Practise on demo"
-		},
-		"f5": {
-			"type": "string",
-			"default": "Place trades on MetaTrader with no money at risk."
-		},
-		"f6": {
-			"type": "string",
-			"default": "Follow the plan"
-		},
-		"f7": {
-			"type": "string",
-			"default": "Use the structure, entry and stop-loss from each post."
-		},
-		"f8": {
-			"type": "string",
-			"default": "Size small"
-		},
-		"f9": {
-			"type": "string",
-			"default": "Risk a small, fixed share of your account per trade."
-		},
-		"f10": {
-			"type": "string",
-			"default": "Review honestly"
-		},
-		"f11": {
-			"type": "string",
-			"default": "Look back at every trade, including the losers."
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Practise on demo",
+					"k2": "Place trades on MetaTrader with no money at risk."
+				},
+				{
+					"k1": "Follow the plan",
+					"k2": "Use the structure, entry and stop-loss from each post."
+				},
+				{
+					"k1": "Size small",
+					"k2": "Risk a small, fixed share of your account per trade."
+				},
+				{
+					"k1": "Review honestly",
+					"k2": "Look back at every trade, including the losers."
+				}
+			]
 		}
 	},
 	"render": "file:./render.php",

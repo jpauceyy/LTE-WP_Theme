@@ -19,53 +19,30 @@
       "type": "string",
       "default": "How nearly 10 years of independent trading began, and why it shapes the way Learn Try Earn teaches."
     },
-    "f3": {
-      "type": "string",
-      "default": "The ambition"
-    },
-    "f4": {
-      "type": "string",
-      "default": "A seat on a London trading <em>floor.</em>"
-    },
-    "f5": {
-      "type": "string",
-      "default": "My interest in financial markets originally led me to consider a career in investment banking in London, with the ambition of working on a trading floor. I was drawn to the analytical thinking, fast-moving environment and challenge of making decisions as markets responded to events around the world."
-    },
-    "f6": {
-      "type": "string",
-      "default": "The decision"
-    },
-    "f7": {
-      "type": "string",
-      "default": "Choosing to trade <em>independently.</em>"
-    },
-    "f8": {
-      "type": "string",
-      "default": "As I considered the direction I wanted my life to take, I decided that trading independently was a better fit for me. It offered the freedom to develop my own approach and build my working life around my priorities, while taking responsibility for my own decisions."
-    },
-    "f9": {
-      "type": "string",
-      "default": "The responsibility"
-    },
-    "f10": {
-      "type": "string",
-      "default": "Independence comes with <em>accountability.</em>"
-    },
-    "f11": {
-      "type": "string",
-      "default": "You have to establish your own structure, question your judgement and accept the consequences when an idea does not work out."
-    },
-    "f12": {
-      "type": "string",
-      "default": "Today"
-    },
-    "f13": {
-      "type": "string",
-      "default": "Learn Try <em>Earn.</em>"
-    },
-    "f14": {
-      "type": "string",
-      "default": "Those principles shape the approach I want to share through Learn Try Earn: explaining the markets I trade and helping you build a clearer understanding of trading."
+    "r1": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "The ambition",
+          "k2": "A seat on a London trading <em>floor.</em>",
+          "k3": "My interest in financial markets originally led me to consider a career in investment banking in London, with the ambition of working on a trading floor. I was drawn to the analytical thinking, fast-moving environment and challenge of making decisions as markets responded to events around the world."
+        },
+        {
+          "k1": "The decision",
+          "k2": "Choosing to trade <em>independently.</em>",
+          "k3": "As I considered the direction I wanted my life to take, I decided that trading independently was a better fit for me. It offered the freedom to develop my own approach and build my working life around my priorities, while taking responsibility for my own decisions."
+        },
+        {
+          "k1": "The responsibility",
+          "k2": "Independence comes with <em>accountability.</em>",
+          "k3": "You have to establish your own structure, question your judgement and accept the consequences when an idea does not work out."
+        },
+        {
+          "k1": "Today",
+          "k2": "Learn Try <em>Earn.</em>",
+          "k3": "Those principles shape the approach I want to share through Learn Try Earn: explaining the markets I trade and helping you build a clearer understanding of trading."
+        }
+      ]
     }
   },
   "render": "file:./render.php",

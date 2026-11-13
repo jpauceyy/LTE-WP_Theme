@@ -19,53 +19,30 @@
 			"type": "string",
 			"default": "Four steps from sign-up to a funded account. Exact screens differ a little by country."
 		},
-		"f3": {
-			"type": "string",
-			"default": "Step 01"
-		},
-		"f4": {
-			"type": "string",
-			"default": "Register with <em>Vantage.</em>"
-		},
-		"f5": {
-			"type": "string",
-			"default": "Go to the Open Live Account page using our link, choose an <strong>Individual</strong> account, then enter your country, email, phone number and a password. This creates your Vantage Client Portal login."
-		},
-		"f6": {
-			"type": "string",
-			"default": "Step 02"
-		},
-		"f7": {
-			"type": "string",
-			"default": "Verify your <em>identity.</em>"
-		},
-		"f8": {
-			"type": "string",
-			"default": "Complete your profile and upload a photo ID and proof of address. This is a standard anti-money-laundering (KYC) check. Review usually takes up to one business day, and Vantage emails you when you’re approved."
-		},
-		"f9": {
-			"type": "string",
-			"default": "Step 03"
-		},
-		"f10": {
-			"type": "string",
-			"default": "Choose MT4 or <em>MT5.</em>"
-		},
-		"f11": {
-			"type": "string",
-			"default": "When you set up your trading account, pick the platform (MetaTrader 4 or MetaTrader 5), the account type and your base currency. Not sure? MT5 is the newer platform; either works for gold, silver and crypto."
-		},
-		"f12": {
-			"type": "string",
-			"default": "Step 04"
-		},
-		"f13": {
-			"type": "string",
-			"default": "Fund your <em>account.</em>"
-		},
-		"f14": {
-			"type": "string",
-			"default": "Once approved, deposit from the Client Portal. Start with an amount you can afford to lose, or open a demo account first and practise without real money."
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Step 01",
+					"k2": "Register with <em>Vantage.</em>",
+					"k3": "Go to the Open Live Account page using our link, choose an <strong>Individual</strong> account, then enter your country, email, phone number and a password. This creates your Vantage Client Portal login."
+				},
+				{
+					"k1": "Step 02",
+					"k2": "Verify your <em>identity.</em>",
+					"k3": "Complete your profile and upload a photo ID and proof of address. This is a standard anti-money-laundering (KYC) check. Review usually takes up to one business day, and Vantage emails you when you’re approved."
+				},
+				{
+					"k1": "Step 03",
+					"k2": "Choose MT4 or <em>MT5.</em>",
+					"k3": "When you set up your trading account, pick the platform (MetaTrader 4 or MetaTrader 5), the account type and your base currency. Not sure? MT5 is the newer platform; either works for gold, silver and crypto."
+				},
+				{
+					"k1": "Step 04",
+					"k2": "Fund your <em>account.</em>",
+					"k3": "Once approved, deposit from the Client Portal. Start with an amount you can afford to lose, or open a demo account first and practise without real money."
+				}
+			]
 		}
 	},
 	"render": "file:./render.php",

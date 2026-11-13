@@ -19,41 +19,25 @@
 			"type": "string",
 			"default": "The aim is to help you understand how to approach these markets with a plan, before any money is at risk."
 		},
-		"f3": {
-			"type": "string",
-			"default": "01"
-		},
-		"f4": {
-			"type": "string",
-			"default": "What to look for"
-		},
-		"f5": {
-			"type": "string",
-			"default": "The structure, levels and conditions that make gold and silver worth watching on a given day."
-		},
-		"f6": {
-			"type": "string",
-			"default": "02"
-		},
-		"f7": {
-			"type": "string",
-			"default": "How to assess an opportunity"
-		},
-		"f8": {
-			"type": "string",
-			"default": "Weigh a potential setup against your plan, the wider context and how clearly the chart supports it."
-		},
-		"f9": {
-			"type": "string",
-			"default": "03"
-		},
-		"f10": {
-			"type": "string",
-			"default": "The downside, before you enter"
-		},
-		"f11": {
-			"type": "string",
-			"default": "Decide where you’re wrong and how much you’re prepared to lose before you open a position."
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "01",
+					"k2": "What to look for",
+					"k3": "The structure, levels and conditions that make gold and silver worth watching on a given day."
+				},
+				{
+					"k1": "02",
+					"k2": "How to assess an opportunity",
+					"k3": "Weigh a potential setup against your plan, the wider context and how clearly the chart supports it."
+				},
+				{
+					"k1": "03",
+					"k2": "The downside, before you enter",
+					"k3": "Decide where you’re wrong and how much you’re prepared to lose before you open a position."
+				}
+			]
 		}
 	},
 	"render": "file:./render.php",

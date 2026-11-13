@@ -19,117 +19,103 @@
 			"type": "string",
 			"default": "Trading signals on Telegram are only useful if you understand them. Ours come with the plan and the reasoning, so every post teaches you something."
 		},
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Trade entries, in full",
+					"k2": "Entry, stop-loss, target and risk, posted as we take the trade."
+				},
+				{
+					"k1": "Daily analysis",
+					"k2": "The gold and silver levels we’re watching before each session, plus Bitcoin and Ethereum when they’re on the radar."
+				},
+				{
+					"k1": "Trade reviews",
+					"k2": "What worked, what didn’t and what we’d change, including the losses."
+				},
+				{
+					"k1": "Community",
+					"k2": "Ask questions, share your journal and get alerts when we go live."
+				}
+			]
+		},
 		"f3": {
-			"type": "string",
-			"default": "Trade entries, in full"
-		},
-		"f4": {
-			"type": "string",
-			"default": "Entry, stop-loss, target and risk, posted as we take the trade."
-		},
-		"f5": {
-			"type": "string",
-			"default": "Daily analysis"
-		},
-		"f6": {
-			"type": "string",
-			"default": "The gold and silver levels we’re watching before each session, plus Bitcoin and Ethereum when they’re on the radar."
-		},
-		"f7": {
-			"type": "string",
-			"default": "Trade reviews"
-		},
-		"f8": {
-			"type": "string",
-			"default": "What worked, what didn’t and what we’d change, including the losses."
-		},
-		"f9": {
-			"type": "string",
-			"default": "Community"
-		},
-		"f10": {
-			"type": "string",
-			"default": "Ask questions, share your journal and get alerts when we go live."
-		},
-		"f11": {
 			"type": "string",
 			"default": "Join our Telegram"
 		},
-		"f12": {
+		"f4": {
 			"type": "string",
 			"default": "https://t.me/learntryearn"
 		},
-		"f13": {
+		"f5": {
 			"type": "string",
 			"default": "Our entries show how we trade and aren’t instructions to copy. Trading involves significant risk and you may lose more than your deposit. Content is educational and not financial advice."
 		},
-		"f14": {
+		"f6": {
 			"type": "string",
 			"default": "Learn Try Earn"
 		},
-		"f15": {
+		"f7": {
 			"type": "string",
 			"default": "Example messages"
 		},
-		"f16": {
+		"f8": {
 			"type": "string",
 			"default": "Analysis"
 		},
-		"f17": {
+		"f9": {
 			"type": "string",
 			"default": "Gold holding above [level]. Waiting for a pullback into our zone. No trade yet."
 		},
-		"f18": {
+		"f10": {
 			"type": "string",
 			"default": "Entry: XAUUSD buy"
 		},
-		"f19": {
+		"f11": {
 			"type": "string",
 			"default": "Entry"
 		},
-		"f20": {
+		"f12": {
 			"type": "string",
 			"default": "[price]"
 		},
-		"f21": {
+		"f13": {
 			"type": "string",
 			"default": "Stop"
 		},
-		"f22": {
+		"f14": {
 			"type": "string",
 			"default": "[price]"
 		},
-		"f23": {
+		"f15": {
 			"type": "string",
 			"default": "Target"
 		},
-		"f24": {
+		"f16": {
 			"type": "string",
 			"default": "[price]"
 		},
-		"f25": {
+		"f17": {
 			"type": "string",
 			"default": "Risk"
 		},
-		"f26": {
+		"f18": {
 			"type": "string",
 			"default": "1% of account"
 		},
-		"f27": {
-			"type": "string",
-			"default": "Update"
-		},
-		"f28": {
-			"type": "string",
-			"default": "Stop moved to break-even. Letting the rest run."
-		},
-		"f29": {
-			"type": "string",
-			"default": "Review"
-		},
-		"f30": {
-			"type": "string",
-			"default": "Why we skipped the Bitcoin setup today: no clear structure."
+		"r2": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Update",
+					"k2": "Stop moved to break-even. Letting the rest run."
+				},
+				{
+					"k1": "Review",
+					"k2": "Why we skipped the Bitcoin setup today: no clear structure."
+				}
+			]
 		}
 	},
 	"render": "file:./render.php",

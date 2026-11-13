@@ -1,5 +1,5 @@
 import { RichText, MediaUpload, MediaUploadCheck, URLInput } from '@wordpress/block-editor';
-import { Button, Popover } from '@wordpress/components';
+import { Button, Popover, PanelBody } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { SVG, Path } from '@wordpress/primitives';
@@ -200,5 +200,25 @@ export function LtePhoto( { value, onChange, children } ) {
 				) }
 			/>
 		</MediaUploadCheck>
+	);
+}
+
+const plainText = ( s ) => String( s || '' ).replace( /<[^>]+>/g, '' ).replace( /&[a-z#0-9]+;/gi, ' ' ).replace( /\s+/g, ' ' ).trim();
+
+/** Sidebar list for a repeating group: reorder, delete, add (duplicates the last item). */
+export function LteRepeaterPanel( { title, items, set } ) {
+	return (
+		<PanelBody title={ title } initialOpen={ false }>
+			{ items.map( ( it, i ) => {
+				const label = plainText( Object.values( it ).find( ( v ) => typeof v === 'string' && plainText( v ) ) ) || __( 'Item', 'lte' );
+				return (
+					<div key={ i } className="lte-repeater-row">
+						<span className="lte-repeater-label">{ i + 1 }. { label.slice( 0, 34 ) }</span>
+						<Ctl arr={ items } i={ i } set={ set } />
+					</div>
+				);
+			} ) }
+			<Add label={ __( 'Add item', 'lte' ) } onClick={ () => set( [ ...items, JSON.parse( JSON.stringify( items[ items.length - 1 ] || {} ) ) ] ) } />
+		</PanelBody>
 	);
 }

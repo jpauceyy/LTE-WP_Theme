@@ -19,29 +19,22 @@
 			"type": "string",
 			"default": "We’re traders who teach the part most beginners skip: the plan, the stop and the size. Then we use it live, wins and losses included. <em>No hype.</em>"
 		},
-		"f3": {
-			"type": "string",
-			"default": "Our goal"
-		},
-		"f4": {
-			"type": "string",
-			"default": "To help you build a practical understanding of the markets: preparing a plan, managing risk and reviewing your decisions honestly."
-		},
-		"f5": {
-			"type": "string",
-			"default": "Education first"
-		},
-		"f6": {
-			"type": "string",
-			"default": "Every live session and Telegram post explains the reasoning, so you learn a process instead of copying a number."
-		},
-		"f7": {
-			"type": "string",
-			"default": "Discipline over excitement"
-		},
-		"f8": {
-			"type": "string",
-			"default": "We follow a written plan, wait for our setups and skip trades that don’t fit. Fewer, better decisions."
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Our goal",
+					"k2": "To help you build a practical understanding of the markets: preparing a plan, managing risk and reviewing your decisions honestly."
+				},
+				{
+					"k1": "Education first",
+					"k2": "Every live session and Telegram post explains the reasoning, so you learn a process instead of copying a number."
+				},
+				{
+					"k1": "Discipline over excitement",
+					"k2": "We follow a written plan, wait for our setups and skip trades that don’t fit. Fewer, better decisions."
+				}
+			]
 		}
 	},
 	"render": "file:./render.php",

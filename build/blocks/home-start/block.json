@@ -47,115 +47,121 @@
       "type": "string",
       "default": "See how a trade is planned before you risk anything."
     },
+    "r1": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "Live trading on TikTok"
+        },
+        {
+          "k1": "Gold and silver, explained"
+        },
+        {
+          "k1": "No account needed"
+        }
+      ]
+    },
     "f10": {
-      "type": "string",
-      "default": "Live trading on TikTok"
-    },
-    "f11": {
-      "type": "string",
-      "default": "Gold and silver, explained"
-    },
-    "f12": {
-      "type": "string",
-      "default": "No account needed"
-    },
-    "f13": {
       "type": "string",
       "default": "Watch us live on TikTok"
     },
-    "f14": {
+    "f11": {
       "type": "string",
       "default": "https://www.tiktok.com/@learntryearn"
     },
-    "f15": {
+    "f12": {
       "type": "string",
       "default": "Start here"
     },
-    "f16": {
+    "f13": {
       "type": "string",
       "default": "Step 2"
     },
-    "f17": {
+    "f14": {
       "type": "string",
       "default": "Learn"
     },
-    "f18": {
+    "f15": {
       "type": "string",
       "default": "<em>[Free / £x]</em>"
     },
-    "f19": {
+    "f16": {
       "type": "string",
       "default": "Join the community and follow the full process every day."
     },
-    "f20": {
-      "type": "string",
-      "default": "Entries with stop-loss and target"
+    "r2": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "Entries with stop-loss and target"
+        },
+        {
+          "k1": "Daily gold and silver analysis"
+        },
+        {
+          "k1": "Reviews, questions and live alerts"
+        }
+      ]
     },
-    "f21": {
-      "type": "string",
-      "default": "Daily gold and silver analysis"
-    },
-    "f22": {
-      "type": "string",
-      "default": "Reviews, questions and live alerts"
-    },
-    "f23": {
+    "f17": {
       "type": "string",
       "default": "Join our Telegram"
     },
-    "f24": {
+    "f18": {
       "type": "string",
       "default": "https://t.me/learntryearn"
     },
-    "f25": {
+    "f19": {
       "type": "string",
       "default": "Step 3"
     },
-    "f26": {
+    "f20": {
       "type": "string",
       "default": "Trade with [Broker name]"
     },
-    "f27": {
+    "f21": {
       "type": "string",
       "default": "Demo <em>first.</em>"
     },
-    "f28": {
+    "f22": {
       "type": "string",
       "default": "The broker we use on our lives. Practise on demo, then go live small."
     },
-    "f29": {
-      "type": "string",
-      "default": "Regulated by [Regulator], licence [number]"
+    "r3": {
+      "type": "array",
+      "default": [
+        {
+          "k1": "Regulated by [Regulator], licence [number]"
+        },
+        {
+          "k1": "Gold, silver and crypto, spreads from [x]"
+        },
+        {
+          "k1": "[Platform], minimum deposit [amount]"
+        }
+      ]
     },
-    "f30": {
-      "type": "string",
-      "default": "Gold, silver and crypto, spreads from [x]"
-    },
-    "f31": {
-      "type": "string",
-      "default": "[Platform], minimum deposit [amount]"
-    },
-    "f32": {
+    "f23": {
       "type": "string",
       "default": "$1,000"
     },
-    "f33": {
+    "f24": {
       "type": "string",
       "default": "$10"
     },
-    "f34": {
+    "f25": {
       "type": "string",
       "default": "Open an account with [Broker name]"
     },
-    "f35": {
+    "f26": {
       "type": "string",
       "default": "https://YOUR-BROKER-LINK.com"
     },
-    "f36": {
+    "f27": {
       "type": "string",
       "default": "Disclosure: LTE may receive a commission if you open an account using our link. Always check a broker’s regulation yourself."
     },
-    "f37": {
+    "f28": {
       "type": "string",
       "default": "<strong>Risk warning:</strong> Trading involves significant risk and you may lose more than your deposit. Content is educational and not financial advice. Losses can exceed the planned amount through gaps and slippage."
     }

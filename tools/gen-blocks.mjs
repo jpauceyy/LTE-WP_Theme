@@ -50,10 +50,59 @@ function styleObj( s ) {
 	return o;
 }
 
+const BOOL_ATTRS = [ 'hidden', 'disabled', 'checked', 'multiple', 'selected', 'open' ];
+const sigOf = ( el ) => el.tagName.toLowerCase() + '|' + ( el.getAttribute( 'class' ) || '' );
+
+/** Index of the '>' that closes the first opening tag (ignores '>' inside quotes / braces). */
+function openTagEnd( s ) {
+	let q = null;
+	let depth = 0;
+	for ( let i = 0; i < s.length; i++ ) {
+		const c = s[ i ];
+		if ( q ) { if ( c === q && s[ i - 1 ] !== '\\' ) q = null; continue; }
+		if ( c === '"' || c === "'" ) { q = c; continue; }
+		if ( c === '{' ) depth++;
+		if ( c === '}' ) depth--;
+		if ( c === '>' && depth === 0 ) return i;
+	}
+	return -1;
+}
+
 function build( rootEl ) {
-	let n = 0;
 	const attrs = {};
 	const statics = [];
+	const repeaters = [];
+	let rn = 0;
+	let blockN = 0;
+
+	const blockCtx = {
+		item: false,
+		field( val, type = 'string' ) {
+			const key = 'f' + ++blockN;
+			attrs[ key ] = { type, default: val };
+			return key;
+		},
+		php: ( k ) => `$a['${ k }']`,
+		get: ( k ) => `attributes.${ k }`,
+		set: ( k, v = 'v' ) => `setAttributes( { ${ k }: ${ v } } )`,
+	};
+
+	function newItemCtx() {
+		let n = 0;
+		const values = {};
+		return {
+			item: true,
+			values,
+			field( val ) {
+				const key = 'k' + ++n;
+				values[ key ] = val;
+				return key;
+			},
+			php: ( k ) => `$it['${ k }']`,
+			get: ( k ) => `item.${ k }`,
+			set: ( k, v = 'v' ) => `setItem( { ${ k }: ${ v } } )`,
+		};
+	}
 
 	function attrStrings( el, skip = [] ) {
 		const php = [];
@@ -64,16 +113,10 @@ function build( rootEl ) {
 			php.push( `${ k0 }="${ v.replace( /"/g, '&quot;' ) }"` );
 			if ( k === 'style' ) jsx.push( `style={ ${ JSON.stringify( styleObj( v ) ) } }` );
 			else if ( k.startsWith( 'on' ) || k === 'required' || k === 'novalidate' || k === 'autocomplete' ) continue;
-			else if ( [ 'hidden', 'disabled', 'checked', 'multiple', 'selected', 'open' ].includes( k ) ) jsx.push( ATTR_MAP[ k ] || k0 );
+			else if ( BOOL_ATTRS.includes( k ) ) jsx.push( ATTR_MAP[ k ] || k0 );
 			else jsx.push( `${ ATTR_MAP[ k ] || k0 }=${ JSON.stringify( v ) }` );
 		}
 		return { php: php.length ? ' ' + php.join( ' ' ) : '', jsx: jsx.length ? ' ' + jsx.join( ' ' ) : '' };
-	}
-
-	function field( val, type = 'string' ) {
-		const key = 'f' + ++n;
-		attrs[ key ] = { type, default: val };
-		return key;
 	}
 
 	function makeStatic( el ) {
@@ -81,20 +124,18 @@ function build( rootEl ) {
 		return { php: `<?php echo $static[${ i }]; ?>`, jsx: `<RawHTML>{ STATIC[ ${ i } ] }</RawHTML>` };
 	}
 
-	function walk( el, isRoot ) {
+	function walk( el, isRoot, ctx ) {
 		const tag = el.tagName.toLowerCase();
 		const cls = ( el.getAttribute( 'class' ) || '' ).split( /\s+/ );
 
-		// decorative / complex pieces stay as markup
 		if ( [ 'svg', 'select', 'textarea' ].includes( tag ) ) return makeStatic( el );
 
-		// images shipped with the theme become uploadable image fields
 		if ( tag === 'img' && ( el.getAttribute( 'src' ) || '' ).includes( 'THEME_URI' ) ) {
-			const key = field( { id: 0, url: 'THEME:' + el.getAttribute( 'src' ).replace( 'THEME_URI', '' ), alt: el.getAttribute( 'alt' ) || '' }, 'object' );
+			const key = ctx.field( { id: 0, url: 'THEME:' + el.getAttribute( 'src' ).replace( 'THEME_URI', '' ), alt: el.getAttribute( 'alt' ) || '' }, 'object' );
 			const a = attrStrings( el, [ 'src', 'alt' ] );
 			return {
-				php: `<img${ a.php } src="<?php echo esc_url( lte_img_src( $a['${ key }'] ) ); ?>" alt="<?php echo esc_attr( $a['${ key }']['alt'] ?? '' ); ?>">`,
-				jsx: `<LteImg${ a.jsx } value={ attributes.${ key } } onChange={ ( v ) => setAttributes( { ${ key }: v } ) } />`,
+				php: `<img${ a.php } src="<?php echo esc_url( lte_img_src( ${ ctx.php( key ) } ) ); ?>" alt="<?php echo esc_attr( ${ ctx.php( key ) }['alt'] ?? '' ); ?>">`,
+				jsx: `<LteImg${ a.jsx } value={ ${ ctx.get( key ) } } onChange={ ( v ) => ${ ctx.set( key ) } } />`,
 			};
 		}
 		if ( tag === 'img' ) {
@@ -102,81 +143,125 @@ function build( rootEl ) {
 			return { php: `<img${ a.php }>`, jsx: `<img${ a.jsx } />` };
 		}
 
-		// portrait photo slot: placeholder until a photo is uploaded
-		if ( cls.includes( 'portrait' ) ) {
-			const key = field( {}, 'object' );
+		if ( cls.includes( 'portrait' ) && ! ctx.item ) {
+			const key = ctx.field( {}, 'object' );
 			let php = '';
 			let jsx = '';
 			for ( const c of el.childNodes.filter( ( x ) => x instanceof HTMLElement ) ) {
-				const r = walk( c, false );
+				const r = walk( c, false, ctx );
 				php += r.php;
 				jsx += r.jsx;
 			}
 			const a = attrStrings( el );
 			return {
-				php: `<${ tag }${ a.php }><?php if ( ! empty( $a['${ key }']['url'] ) ) : ?><img class="portrait-img" src="<?php echo esc_url( $a['${ key }']['url'] ); ?>" alt="<?php echo esc_attr( $a['${ key }']['alt'] ?? '' ); ?>"><?php else : ?>${ php }<?php endif; ?></${ tag }>`,
-				jsx: `<${ tag }${ a.jsx }><LtePhoto value={ attributes.${ key } } onChange={ ( v ) => setAttributes( { ${ key }: v } ) }>${ jsx }</LtePhoto></${ tag }>`,
+				php: `<${ tag }${ a.php }><?php if ( ! empty( ${ ctx.php( key ) }['url'] ) ) : ?><img class="portrait-img" src="<?php echo esc_url( ${ ctx.php( key ) }['url'] ); ?>" alt="<?php echo esc_attr( ${ ctx.php( key ) }['alt'] ?? '' ); ?>"><?php else : ?>${ php }<?php endif; ?></${ tag }>`,
+				jsx: `<${ tag }${ a.jsx }><LtePhoto value={ ${ ctx.get( key ) } } onChange={ ( v ) => ${ ctx.set( key ) } }>${ jsx }</LtePhoto></${ tag }>`,
 			};
 		}
 
-		// links whose content is just text: label + URL both editable
 		if ( tag === 'a' && isRichLeaf( el ) ) {
-			const label = field( el.innerHTML.trim() );
-			const url = field( el.getAttribute( 'href' ) || '' );
+			const label = ctx.field( el.innerHTML.trim() );
+			const url = ctx.field( el.getAttribute( 'href' ) || '' );
 			const a = attrStrings( el, [ 'href' ] );
 			return {
-				php: `<a${ a.php } href="<?php echo lte_url( $a['${ url }'] ); ?>"><?php echo lte_kses( $a['${ label }'] ); ?></a>`,
-				jsx: `<LteLink${ a.jsx } label={ attributes.${ label } } url={ attributes.${ url } } onLabel={ ( v ) => setAttributes( { ${ label }: v } ) } onUrl={ ( v ) => setAttributes( { ${ url }: v } ) } />`,
+				php: `<a${ a.php } href="<?php echo lte_url( ${ ctx.php( url ) } ); ?>"><?php echo lte_kses( ${ ctx.php( label ) } ); ?></a>`,
+				jsx: `<LteLink${ a.jsx } label={ ${ ctx.get( label ) } } url={ ${ ctx.get( url ) } } onLabel={ ( v ) => ${ ctx.set( label ) } } onUrl={ ( v ) => ${ ctx.set( url ) } } />`,
 			};
 		}
 
 		if ( ! isRoot && tag !== 'a' && isRichLeaf( el ) ) {
-			const key = field( el.innerHTML.trim() );
+			const key = ctx.field( el.innerHTML.trim() );
 			const a = attrStrings( el );
 			const jt = tag === 'form' ? 'div' : tag;
 			return {
-				php: `<${ tag }${ a.php }><?php echo lte_kses( $a['${ key }'] ); ?></${ tag }>`,
-				jsx: `<Rich tag="${ jt }"${ a.jsx } value={ attributes.${ key } } onChange={ ( v ) => setAttributes( { ${ key }: v } ) } />`,
+				php: `<${ tag }${ a.php }><?php echo lte_kses( ${ ctx.php( key ) } ); ?></${ tag }>`,
+				jsx: `<Rich tag="${ jt }"${ a.jsx } value={ ${ ctx.get( key ) } } onChange={ ( v ) => ${ ctx.set( key ) } } />`,
 			};
 		}
 
 		let php = '';
 		let jsx = '';
-		for ( const c of el.childNodes ) {
+		const kids = el.childNodes.filter( ( c ) => c instanceof HTMLElement || ( c instanceof TextNode && c.text.trim() ) );
+		for ( let i = 0; i < kids.length; i++ ) {
+			const c = kids[ i ];
 			if ( c instanceof TextNode ) {
-				const t = c.text;
-				if ( ! t.trim() ) continue;
-				php += esc( t.trim() );
-				jsx += `{ ${ JSON.stringify( plain( t ) ) } }`;
-			} else if ( c instanceof HTMLElement ) {
-				const r = walk( c, false );
-				php += r.php;
-				jsx += r.jsx;
+				php += esc( c.text.trim() );
+				jsx += `{ ${ JSON.stringify( plain( c.text ) ) } }`;
+				continue;
 			}
+			// run of identically structured siblings -> repeater
+			if ( ! ctx.item && tag !== 'form' && ! [ 'svg', 'select', 'a' ].includes( tag ) ) {
+				let j = i;
+				while ( j + 1 < kids.length && kids[ j + 1 ] instanceof HTMLElement && sigOf( kids[ j + 1 ] ) === sigOf( c ) ) j++;
+				if ( j > i ) {
+					const rep = tryRepeater( kids.slice( i, j + 1 ) );
+					if ( rep ) {
+						php += rep.php;
+						jsx += rep.jsx;
+						i = j;
+						continue;
+					}
+				}
+			}
+			const r = walk( c, false, ctx );
+			php += r.php;
+			jsx += r.jsx;
 		}
 
-		// links that wrap markup (icon + text, cards): URL is editable, inner text too
 		if ( tag === 'a' && el.getAttribute( 'href' ) !== undefined ) {
-			const url = field( el.getAttribute( 'href' ) || '' );
+			const url = ctx.field( el.getAttribute( 'href' ) || '' );
 			const a = attrStrings( el, [ 'href' ] );
 			return {
-				php: `<a${ a.php } href="<?php echo lte_url( $a['${ url }'] ); ?>">${ php }</a>`,
-				jsx: `<LteUrlLink${ a.jsx } url={ attributes.${ url } } onUrl={ ( v ) => setAttributes( { ${ url }: v } ) }>${ jsx }</LteUrlLink>`,
+				php: `<a${ a.php } href="<?php echo lte_url( ${ ctx.php( url ) } ); ?>">${ php }</a>`,
+				jsx: `<LteUrlLink${ a.jsx } url={ ${ ctx.get( url ) } } onUrl={ ( v ) => ${ ctx.set( url ) } }>${ jsx }</LteUrlLink>`,
 			};
 		}
 
 		const a = attrStrings( el );
-		const VOID = [ 'input', 'br', 'hr' ].includes( tag );
 		if ( tag === 'input' ) {
 			const j = a.jsx.replace( / value=/, ' defaultValue=' );
 			return { php: `<input${ a.php }>`, jsx: `<input${ j } readOnly />` };
 		}
-		if ( VOID ) return { php: `<${ tag }${ a.php }>`, jsx: `<${ tag }${ a.jsx } />` };
+		if ( [ 'br', 'hr' ].includes( tag ) ) return { php: `<${ tag }${ a.php }>`, jsx: `<${ tag }${ a.jsx } />` };
 		const jt = tag === 'form' ? 'div' : tag;
 		return { php: `<${ tag }${ a.php }>${ php }</${ tag }>`, jsx: `<${ jt }${ a.jsx.replace( / action="[^"]*"| method="[^"]*"/g, '' ) }>${ jsx }</${ jt }>` };
 	}
 
-	return { walk, attrs, statics };
+	function tryRepeater( items ) {
+		if ( items.some( ( it ) => it.querySelector( 'input,select,textarea,form' ) ) ) return null;
+		const mark = statics.length;
+		const walked = items.map( ( it ) => {
+			const ctx = newItemCtx();
+			const r = walk( it, false, ctx );
+			return { r, ctx };
+		} );
+		const first = walked[ 0 ];
+		const ok = Object.keys( first.ctx.values ).length > 0 && walked.every( ( w ) => w.r.php === first.r.php && w.r.jsx === first.r.jsx );
+		if ( ! ok ) {
+			statics.length = mark;
+			return null;
+		}
+		const key = 'r' + ++rn;
+		attrs[ key ] = { type: 'array', default: walked.map( ( w ) => w.ctx.values ) };
+		repeaters.push( { key, label: sigOf( items[ 0 ] ).split( '|' )[ 1 ].split( /\s+/ ).filter( ( c ) => c && c !== 'wp-block-group' )[ 0 ] || items[ 0 ].tagName.toLowerCase(), count: items.length } );
+
+		let ij = first.r.jsx;
+		const m = ij.match( /^<([a-z0-9]+)\b/ );
+		if ( m && ! [ 'input', 'br', 'hr', 'img' ].includes( m[ 1 ] ) ) {
+			const end = openTagEnd( ij );
+			const close = ij.lastIndexOf( `</${ m[ 1 ] }>` );
+			if ( end > 0 && close > end && ij[ end - 1 ] !== '/' ) {
+				const ctl = `<Ctl arr={ attributes.${ key } } i={ i } set={ ( v ) => setAttributes( { ${ key }: v } ) } />`;
+				ij = `<${ m[ 1 ] } data-lte-item=""` + ij.slice( m[ 1 ].length + 1, close ) + ctl + ij.slice( close );
+			}
+		}
+		return {
+			php: `<?php foreach ( $a['${ key }'] as $it ) : ?>${ first.r.php }<?php endforeach; ?>`,
+			jsx: `{ attributes.${ key }.map( ( item, i ) => { const setItem = ( p ) => setAttributes( { ${ key }: setIn( attributes.${ key }, i, p ) } ); return <Fragment key={ i }>${ ij }</Fragment>; } ) }<div className="lte-addrow"><Add label="Add item" onClick={ () => setAttributes( { ${ key }: [ ...attributes.${ key }, JSON.parse( JSON.stringify( attributes.${ key }[ attributes.${ key }.length - 1 ] || {} ) ) ] } ) } /></div>`,
+		};
+	}
+
+	return { walk: ( el, isRoot ) => walk( el, isRoot, blockCtx ), attrs, statics, repeaters };
 }
 
 function processPage( page ) {
@@ -193,12 +278,13 @@ function processPage( page ) {
 		const idx = blocks.length + 1;
 		const nice = NAMES[ page ][ idx - 1 ];
 		const name = `${ page }-${ nice }`;
-		const { walk, attrs, statics } = build( secEl );
+		const { walk, attrs, statics, repeaters } = build( secEl );
 		const r = walk( secEl, true );
-		blocks.push( { page, name, title: `${ page === 'get-started' ? 'Get started' : page[ 0 ].toUpperCase() + page.slice( 1 ) }: ${ nice[ 0 ].toUpperCase() + nice.slice( 1 ) } (${ label.length > 30 ? label.slice( 0, 28 ) + '…' : label })`, secEl, attrs, r, statics } );
+		blocks.push( { page, name, title: `${ page === 'get-started' ? 'Get started' : page[ 0 ].toUpperCase() + page.slice( 1 ) }: ${ nice[ 0 ].toUpperCase() + nice.slice( 1 ) } (${ label.length > 30 ? label.slice( 0, 28 ) + '…' : label })`, secEl, attrs, r, statics, repeaters } );
 	}
 	return blocks;
 }
+
 
 function emit( b ) {
 	const dir = path.join( OUT, b.name );
@@ -238,9 +324,9 @@ ${ staticPhp }?>
 
 	const statics = JSON.stringify( b.statics.map( ( s ) => s.split( THEME_TOKEN ).join( '' ).replace( /THEME_URI/g, '' ) ) );
 	fs.writeFileSync( path.join( dir, 'index.js' ), `import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
-import { RawHTML } from '@wordpress/element';
-import { Rich, LteLink, LteUrlLink, LteImg, LtePhoto } from '../_shared/ui';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { RawHTML, Fragment } from '@wordpress/element';
+import { Rich, LteLink, LteUrlLink, LteImg, LtePhoto, Ctl, Add, setIn, LteRepeaterPanel } from '../_shared/ui';
 import metadata from './block.json';
 
 const STATIC = ${ statics };
@@ -249,7 +335,7 @@ registerBlockType( metadata.name, {
 	edit: ( { attributes, setAttributes } ) => {
 		const blockProps = useBlockProps( { className: ${ JSON.stringify( cls ) }${ id ? `, id: ${ JSON.stringify( id ) }` : '' } } );
 		return (
-			<${ secTag } { ...blockProps }>${ innerJsx }</${ secTag }>
+			<${ secTag } { ...blockProps }>${ b.repeaters.length ? `<InspectorControls>${ b.repeaters.map( ( r ) => `<LteRepeaterPanel title="${ r.label } (list)" items={ attributes.${ r.key } } set={ ( v ) => setAttributes( { ${ r.key }: v } ) } />` ).join( '' ) }</InspectorControls>` : '' }${ innerJsx }</${ secTag }>
 		);
 	},
 	save: () => null,
@@ -278,7 +364,7 @@ for ( const b of all ) {
 const manifest = {};
 for ( const p of PAGES ) manifest[ p ] = all.filter( ( b ) => b.page === p ).map( ( b ) => `lte/${ b.name }` );
 fs.writeFileSync( path.join( root, 'tools', 'manifest.json' ), JSON.stringify( manifest, null, 2 ) );
-console.log( all.map( ( b ) => `${ b.name }  (${ Object.keys( b.attrs ).length } fields, ${ b.statics.length } static)` ).join( '\n' ) );
+console.log( all.map( ( b ) => `${ b.name }  (${ Object.keys( b.attrs ).length } fields, ${ b.statics.length } static) repeaters: ${ b.repeaters.map( ( r ) => r.label + 'x' + r.count ).join( ', ' ) || '-' }` ).join( '\n' ) );
 
 // contact form recipient: sidebar setting instead of a hard-coded address
 {
@@ -287,7 +373,7 @@ console.log( all.map( ( b ) => `${ b.name }  (${ Object.keys( b.attrs ).length }
 	r = r.replace( 'formsubmit.co/contact@lukefenners.com', "formsubmit.co/<?php echo esc_attr( sanitize_email( $a['formEmail'] ) ); ?>" );
 	fs.writeFileSync( path.join( d, 'render.php' ), r );
 	let j = fs.readFileSync( path.join( d, 'index.js' ), 'utf8' );
-	j = j.replace( "import { useBlockProps } from '@wordpress/block-editor';", "import { useBlockProps, InspectorControls } from '@wordpress/block-editor';\nimport { PanelBody, TextControl } from '@wordpress/components';" );
+	j = j.replace( "import { RawHTML", "import { PanelBody, TextControl } from '@wordpress/components';\nimport { RawHTML" );
 	j = j.replace( '<section { ...blockProps }>', '<section { ...blockProps }><InspectorControls><PanelBody title="Contact form"><TextControl label="Send form messages to (email)" help="Messages from the contact form are emailed here." value={ attributes.formEmail } onChange={ ( v ) => setAttributes( { formEmail: v } ) } /></PanelBody></InspectorControls>' );
 	fs.writeFileSync( path.join( d, 'index.js' ), j );
 }

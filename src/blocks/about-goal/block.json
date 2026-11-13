@@ -23,37 +23,26 @@
 			"type": "string",
 			"default": "Whether you are starting from scratch or looking to bring more structure to your approach, the aim is to help you develop stronger foundations."
 		},
-		"f4": {
-			"type": "string",
-			"default": "Understand the market"
-		},
-		"f5": {
-			"type": "string",
-			"default": "Know what moves gold, silver and crypto, and when each is most active."
-		},
-		"f6": {
-			"type": "string",
-			"default": "Prepare a plan"
-		},
-		"f7": {
-			"type": "string",
-			"default": "Decide what you’re looking for before the session starts."
-		},
-		"f8": {
-			"type": "string",
-			"default": "Manage risk"
-		},
-		"f9": {
-			"type": "string",
-			"default": "Define the downside first and size every position from it."
-		},
-		"f10": {
-			"type": "string",
-			"default": "Review honestly"
-		},
-		"f11": {
-			"type": "string",
-			"default": "Look back at every decision, including the ones that didn’t work."
+		"r1": {
+			"type": "array",
+			"default": [
+				{
+					"k1": "Understand the market",
+					"k2": "Know what moves gold, silver and crypto, and when each is most active."
+				},
+				{
+					"k1": "Prepare a plan",
+					"k2": "Decide what you’re looking for before the session starts."
+				},
+				{
+					"k1": "Manage risk",
+					"k2": "Define the downside first and size every position from it."
+				},
+				{
+					"k1": "Review honestly",
+					"k2": "Look back at every decision, including the ones that didn’t work."
+				}
+			]
 		}
 	},
 	"render": "file:./render.php",
