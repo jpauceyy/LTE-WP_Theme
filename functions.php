@@ -235,3 +235,37 @@ function lte_img_src( $img ) {
 	}
 	return $url;
 }
+
+
+/** Meta description for the current view: excerpt, else the first text of the page, else the term or site description. */
+function lte_meta_description() {
+	$desc = '';
+	if ( is_singular() ) {
+		$post = get_queried_object();
+		if ( $post && has_excerpt( $post ) ) {
+			$desc = $post->post_excerpt;
+		} elseif ( $post ) {
+			$desc = do_blocks( $post->post_content );
+			$desc = preg_replace( '#<(script|style|svg)\b.*?</\1>#is', ' ', $desc );
+		}
+	} elseif ( is_category() || is_tag() || is_tax() ) {
+		$desc = term_description();
+	} elseif ( is_author() ) {
+		$desc = get_the_author_meta( 'description', get_queried_object_id() );
+	}
+	$desc = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( preg_replace( '/<[^>]+>/', ' ', (string) $desc ) ) ) );
+	if ( '' === $desc ) {
+		$desc = get_bloginfo( 'description' );
+	}
+	return wp_html_excerpt( $desc, 155, '…' );
+}
+
+function lte_meta_tags() {
+	$desc = lte_meta_description();
+	if ( '' === $desc ) {
+		return;
+	}
+	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
+}
+add_action( 'wp_head', 'lte_meta_tags', 2 );
